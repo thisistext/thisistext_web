@@ -3,11 +3,10 @@
 
 body {
     /* [수정] 폰트 이름 Space Grotesk로 변경 */
-    font-family: 'Space Grotesk', sans-serif;
+font-family: 'Space Grotesk', 'IBM Plex Sans KR', sans-serif;
     
-    /* ★ 전체 폰트 크기 조절 */
-    font-size: 16px; 
-    
+    /* ... 나머지 설정 동일 ... */
+    font-size: 16px;
     color: #000;
     background: #fff;
     overflow-x: hidden;
@@ -16,7 +15,7 @@ body {
 a { text-decoration: none; color: inherit; }
 
 
-/* --- 2. 양옆 기둥 (고정 레이아웃) --- */
+/* --- 2. 양옆 기둥 (고정된 틀) --- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -27,10 +26,9 @@ a { text-decoration: none; color: inherit; }
     
     /* Flexbox 설정 */
     display: flex;
-    align-items: center; /* 수평 중앙 정렬 (기둥 너비의 가운데) */
+    flex-direction: column;
     
-    /* [수정] justify-content: center; 삭제함 */
-    /* 위아래 정렬은 각각 left-bar, right-bar에서 따로 설정 */
+    /* [수정] 여기서 공통 정렬과 여백을 삭제했습니다 */
 }
 
 .vertical-text {
@@ -38,14 +36,8 @@ a { text-decoration: none; color: inherit; }
     text-orientation: mixed;
     white-space: nowrap;
     font-style: normal;
-    
-    /* ★ 기둥 폰트 굵기 */
     font-weight: 700; 
-    
-    /* ★ 기둥 폰트 크기 */
-    font-size: 1.5rem; 
-    
-    /* ★ 자간 */
+    font-size: 7.3rem; 
     letter-spacing: 1px; 
 }
 
@@ -53,14 +45,18 @@ a { text-decoration: none; color: inherit; }
 .left-bar {
     left: 0;
     
-    /* [수정] 내용은 아래쪽(flex-end)에 붙임 */
-    justify-content: flex-end;
+    /* 세로축: 바닥(end)으로 밀기 */
+    justify-content: flex-end; 
     
-    /* ★ 바닥에서 얼마나 띄울지 */
-    padding-bottom: 40px; 
+    /* [추가] 가로축: 왼쪽(start)으로 붙이기 */
+    align-items: flex-start;
+    
+    /* [이동] 왼쪽 여백은 여기서만 줍니다 */
+    padding-left: 20px; 
+    
+    padding-bottom: 20px; 
 }
 .date-text {
-    /* 180도 돌려서 아래에서 위로 읽게 만듦 */
     transform: rotate(180deg); 
 }
 
@@ -68,11 +64,16 @@ a { text-decoration: none; color: inherit; }
 .right-bar {
     right: 0;
     
-    /* [수정] 내용은 위쪽(flex-start)에 붙임 */
-    justify-content: flex-start;
+    /* 세로축: 천장(start)으로 밀기 */
+    justify-content: flex-start; 
     
-    /* ★ 천장에서 얼마나 띄울지 */
-    padding-top: 40px; 
+    /* [추가] 가로축: 오른쪽(end)으로 붙이기 -> 대칭 완성! */
+    align-items: flex-end;
+    
+    /* [추가] 오른쪽 여백을 줍니다 */
+    padding-right: 20px; 
+    
+    padding-top: 20px; 
 }
 
 
@@ -87,7 +88,7 @@ a { text-decoration: none; color: inherit; }
     background: #fff;
     
     /* ★ 메뉴 전체 위쪽 여백 (로고 시작 위치랑 맞추면 예쁨) */
-    padding-top: 40px; 
+    padding-top: 20px; 
 }
 
 .sidebar-menu ul {
@@ -96,7 +97,7 @@ a { text-decoration: none; color: inherit; }
     flex-direction: column;
     
     /* ★ 메뉴 간격 */
-    gap: 15px; 
+    gap: 0.2em; 
     
     /* ★ 메뉴 왼쪽 여백 */
     padding-left: 15px; 
@@ -107,10 +108,10 @@ a { text-decoration: none; color: inherit; }
     text-align: left;
     
     /* ★ 메뉴 폰트 굵기 */
-    font-weight: 500; 
+    font-weight: 600; 
     
     /* ★ 메뉴 폰트 크기 */
-    font-size: 1.1rem; 
+    font-size: 1.4em; 
     
     letter-spacing: 0px; 
     transition: opacity 0.3s;
