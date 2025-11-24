@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TABF Clone</title>
+    <title>this is text</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo"><a href="#">TOKYO ART BOOK FAIR CLONE</a></div>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">EXHIBITORS</a></li>
-                    <li><a href="#">EVENTS</a></li>
-                    <li><a href="#">INFO</a></li>
-                </ul>
-            </nav>
+    <aside class="sidebar left-bar">
+        <div class="vertical-text date-text">
+            2025. 01. 31 — 02. 01
         </div>
-    </header>
+    </aside>
 
     <main>
-        <section class="hero-section">
-            <h1>WELCOME TO<br>ART BOOK FAIR</h1>
-        </section>
-
-        <section class="content-grid">
-            <div class="grid-item">
-                <div class="image-box">IMG 01</div>
-                <p class="item-title">Exhibitor Name 01</p>
-            </div>
-            <div class="grid-item">
-                <div class="image-box">IMG 02</div>
-                <p class="item-title">Guest Event</p>
-            </div>
-            <div class="grid-item">
-                <div class="image-box">IMG 03</div>
-                <p class="item-title">Book Signing</p>
-            </div>
-            <div class="grid-item">
-                <div class="image-box">IMG 04</div>
-                <p class="item-title">Special Talk</p>
-            </div>
-            <div class="grid-item">
-                <div class="image-box">IMG 05</div>
-                <p class="item-title">Workshop</p>
-            </div>
-            <div class="grid-item">
-                <div class="image-box">IMG 06</div>
-                <p class="item-title">Gallery Tour</p>
-            </div>
-        </section>
+        <section class="masonry-grid">
+            <article class="card">
+                <div class="card-image-placeholder" style="height: 300px;">IMG 01</div>
+                <div class="card-info"><h2>guest talk</h2><p>텍스트의 미래</p></div>
+            </article>
+            <article class="card">
+                <div class="card-image-placeholder" style="height: 450px;">IMG 02</div>
+                <div class="card-info"><h2>new exhibitor</h2><p>워크샵</p></div>
+            </article>
+            <article class="card">
+                <div class="card-image-placeholder" style="height: 250px;">IMG 03</div>
+                <div class="card-info"><h2>event</h2><p>book signing</p></div>
+            </article>
+             </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 TABF Clone Project</p>
-    </footer>
-</body>
+    <nav class="sidebar-menu">
+        <ul>
+            <li><a href="#">about</a></li>
+            <li><a href="#">publishers</a></li>
+            <li><a href="#">program</a></li>
+            <li><a href="#">info</a></li>
+        </ul>
+    </nav>
 
+    <aside class="sidebar right-bar">
+        <div class="vertical-text title-text">
+            this is text
+        </div>
+    </aside>
+
+</body>
 </html>
