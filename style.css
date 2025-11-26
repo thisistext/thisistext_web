@@ -6,10 +6,7 @@
 }
 
 body {
-    /* [수정] 폰트 이름 Space Grotesk로 변경 */
     font-family: 'Space Grotesk', 'IBM Plex Sans KR', sans-serif;
-
-    /* ... 나머지 설정 동일 ... */
     font-size: 16px;
     color: #000;
     background: #fff;
@@ -21,8 +18,7 @@ a {
     color: inherit;
 }
 
-
-/* --- 2. 양옆 기둥 (고정된 틀) --- */
+/* --- 2. PC용 기둥 공통 --- */
 .sidebar {
     position: fixed;
     top: 0;
@@ -30,62 +26,55 @@ a {
     width: 10vw;
     background: #fff;
     z-index: 100;
-
-    /* Flexbox 설정 */
     display: flex;
     flex-direction: column;
-
-    /* [수정] 여기서 공통 정렬과 여백을 삭제했습니다 */
 }
 
 .vertical-text {
     writing-mode: vertical-lr;
     text-orientation: mixed;
     white-space: nowrap;
-    font-style: normal;
     font-weight: 700;
-    font-size: 7rem;
     letter-spacing: 1px;
 }
 
-/* [왼쪽 기둥] 날짜 */
+/* PC용 폰트 크기 */
+.pc-date-text,
+.title-text {
+    font-size: 7rem;
+}
+
+/* 태블릿용 긴 텍스트는 PC에서 숨김 */
+.tablet-combined-text {
+    display: none;
+}
+
 .left-bar {
     left: 0;
-
-    /* 세로축: 바닥(end)으로 밀기 */
     justify-content: flex-end;
-
-    /* [추가] 가로축: 왼쪽(start)으로 붙이기 */
     align-items: flex-start;
-
-    /* [이동] 왼쪽 여백은 여기서만 줍니다 */
     padding-left: 20px;
-
     padding-bottom: 25px;
 }
 
-.date-text {
+.pc-date-text {
     transform: rotate(180deg);
 }
 
-/* [오른쪽 끝 기둥] 로고 */
 .right-bar {
     right: 0;
-
-    /* 세로축: 천장(start)으로 밀기 */
     justify-content: flex-start;
-
-    /* [추가] 가로축: 오른쪽(end)으로 붙이기 -> 대칭 완성! */
     align-items: flex-end;
-
-    /* [추가] 오른쪽 여백을 줍니다 */
     padding-right: 20px;
-
     padding-top: 25px;
 }
 
+/* --- 3. PC용 메뉴 --- */
+.menu-toggle-btn,
+.menu-overlay {
+    display: none;
+}
 
-/* --- 3. 메뉴 영역 --- */
 .sidebar-menu {
     position: fixed;
     top: 0;
@@ -94,52 +83,42 @@ a {
     height: 100vh;
     z-index: 90;
     background: #fff;
-
-    /* ★ 메뉴 전체 위쪽 여백 (로고 시작 위치랑 맞추면 예쁨) */
     padding-top: 25px;
+    transition: all 0.3s ease;
 }
 
 .sidebar-menu ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-
-    /* ★ 메뉴 간격 */
     gap: 0.2em;
-
-    /* ★ 메뉴 왼쪽 여백 */
     padding-left: 15px;
 }
 
+.menu-spacer {
+    margin-top: 15px;
+}
+
 .sidebar-menu li a {
-    display: block;
-    text-align: right;
-
-    /* ★ 메뉴 폰트 굵기 */
+    display: inline-block;
+    text-align: left;
     font-weight: 600;
-
-    /* ★ 메뉴 폰트 크기 */
-    font-size: 1.5em;
-
-    letter-spacing: 0px;
-    transition: opacity 0.3s;
-    padding: 0 4 4 4px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
 }
 
-.sidebar-menu li a:hover {
-    opacity: 0.5;
+.sidebar-menu li a:hover,
+.sidebar-menu li a.active {
+    border-bottom: 2px solid #000;
 }
-
 
 /* --- 4. 메인 콘텐츠 --- */
 main {
     margin-left: 10vw;
     margin-right: 20vw;
     padding: 40px;
-
-    /* ★ 본문 시작 위치 (기둥 글자 시작 위치랑 맞추려면 조정) */
     padding-top: 40px;
-
     min-height: 100vh;
     padding-bottom: 100px;
 }
@@ -151,8 +130,6 @@ main {
 
 .card {
     break-inside: avoid;
-
-    /* ★ 카드 아래 여백 */
     margin-bottom: 60px;
 }
 
@@ -165,7 +142,7 @@ main {
 
 .card-image-placeholder {
     width: 100%;
-    background-color: #f0f0f0;
+    background: #f0f0f0;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
@@ -174,14 +151,12 @@ main {
 }
 
 .card-info h2 {
-    /* ★ 제목 크기 */
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 .card-info p {
-    /* ★ 본문 크기 */
     font-size: 14px;
     color: #666;
     line-height: 1.4;
@@ -189,88 +164,180 @@ main {
 
 
 /* =========================================
-   [반응형] 태블릿 구간 (768px ~ 1024px)
-   아이패드 세로 모드나 작은 노트북 화면
+   [반응형] 태블릿 & 모바일 (1024px 이하)
    ========================================= */
 @media (max-width: 1024px) {
 
-    /* 1. 왼쪽 날짜 기둥: 공간 확보를 위해 숨김 */
+    /* 1. 기둥 설정 */
     .left-bar {
         display: none;
     }
 
-    /* 2. 메인 콘텐츠: 왼쪽 여백 없애고, 오른쪽 공간만 남김 */
-    main {
-        margin-left: 0;
-        /* 오른쪽 기둥(10vw) + 메뉴(10vw) 공간 확보 */
-        margin-right: 20vw;
-        padding-top: 40px;
+    /* 왼쪽 숨김 */
+
+    /* PC용 짧은 제목은 숨기고, 긴 텍스트를 보여줌 */
+    .title-text {
+        display: none;
     }
 
-    /* 3. 그리드: 화면이 애매하므로 시원하게 1단으로 변경 */
+    .tablet-combined-text {
+        display: block;
+    }
+
+    .right-bar {
+        /* 세로쓰기 유지 */
+        flex-direction: column;
+
+        /* 오른쪽 정렬 유지 */
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        /* 폭을 조금 넓힘 */
+        width: 14vw;
+        padding-right: 1vw;
+        /* 오른쪽 여백 살짝 */
+    }
+
+    /* ★ [중요] 태블릿/모바일 기둥 텍스트 설정 ★ */
+    .tablet-combined-text {
+        /* vw 단위: 화면 너비에 따라 글자 크기가 변함
+           숫자가 클수록 글자가 커집니다.
+           화면에서 잘리지 않도록 이 숫자를 조절하세요.
+        */
+        font-size: 11vw;
+        /* <--- 여기 숫자를 조절하세요! */
+
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    main {
+        margin-left: 0;
+        margin-right: 14vw;
+        padding-top: 80px;
+    }
+
     .masonry-grid {
         column-count: 1;
     }
 
-    /* 4. 메뉴 & 오른쪽 기둥: PC 비율(10vw) 유지하되, 
-       글자가 잘리지 않도록 최소 너비(min-width) 안전장치 추가 */
-    .sidebar,
+
+    /* 2. 햄버거 버튼 */
+    .menu-toggle-btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position: fixed;
+        top: 25px;
+        right: 16vw;
+        /* 기둥 옆 */
+        z-index: 200;
+        cursor: pointer;
+        padding: 10px;
+        transition: opacity 0.3s;
+        /* 사라질 때 부드럽게 */
+    }
+
+    .menu-toggle-btn span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #000;
+    }
+
+    /* ★ [수정] 메뉴 열리면 버튼 투명하게 사라짐 (X 안 만듦) */
+    .menu-toggle-btn.active {
+        opacity: 0;
+        pointer-events: none;
+        /* 안 보이는데 눌리는 것 방지 */
+    }
+
+
+    /* 3. 메뉴 오버레이 (투명 막) */
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        /* ★ [수정] 배경 완전 투명 (그림자 없음) */
+        background-color: transparent;
+
+        /* ★ [중요] Z-index 순서 정리 */
+        /* 메뉴(99) > 오버레이(95) > 콘텐츠(기본) */
+        z-index: 95;
+
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* 오버레이 활성화되면 클릭을 받기 위해 보임 처리 */
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* 4. 플로팅 메뉴 */
     .sidebar-menu {
-        /* 너무 좁아지면 글자가 깨지므로 최소 80px은 확보 */
-        min-width: 80px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(20px);
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        right: 14vw;
+        /* 기둥 옆 */
+        width: auto;
+        min-width: 200px;
+
+        /* ★ [중요] 메뉴는 오버레이보다 위에 있어야 함 */
+        z-index: 99;
+
+        background: #fff;
+        padding: 100px 40px 40px 40px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .sidebar-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+
+    .sidebar-menu ul {
+        align-items: flex-end;
+        gap: 20px;
+    }
+
+    .sidebar-menu li a {
+        font-size: 1.5rem;
     }
 }
 
-
-/* =========================================
-   [반응형] 모바일 구간 (768px 이하)
-   스마트폰 화면
-   ========================================= */
-@media (max-width: 768px) {
-
-    /* 1. 메인 콘텐츠: 오른쪽 기둥(60px)만 남기고 여백 최소화 */
-    main {
-        margin-right: 60px;
-        /* 로고 기둥 너비만큼만 */
-        margin-left: 0;
-        padding: 20px;
-        padding-top: 40px;
-    }
-
-    /* 2. 오른쪽 로고 기둥: 10%가 아니라 고정된 얇은 바(60px)로 변경 */
+/* 모바일 */
+@media (max-width: 600px) {
     .right-bar {
-        width: 60px;
-        min-width: 0;
-        /* 태블릿 설정 초기화 */
-        padding-right: 10px;
-        /* 여백 조금 줄임 */
+        width: 18vw;
     }
 
-    /* 로고 폰트 크기 줄임 (모바일엔 7rem이 너무 큼) */
-    .vertical-text {
-        font-size: 3rem;
+    main {
+        margin-right: 18vw;
     }
 
-    /* 3. 메뉴바: 지금은 화면을 가리므로 숨기고 나중에 '햄버거 버튼'으로 대체하거나
-       일단은 로고 기둥 바로 옆에 얇게 붙임 */
+    .menu-toggle-btn {
+        right: 20vw;
+    }
+
     .sidebar-menu {
-        right: 60px;
-        /* 로고 기둥 옆 */
-        width: 100px;
-        /* 메뉴바 너비 고정 */
-        min-width: 0;
-        padding-top: 40px;
-        background: rgba(255, 255, 255, 0.95);
-        /* 배경 살짝 불투명 */
+        right: 18vw;
+        min-width: 150px;
     }
 
-    /* 모바일 메뉴 폰트 크기 축소 */
-    .sidebar-menu li a {
-        font-size: 1rem;
-    }
-
-    /* 4. 그리드: 당연히 1단 */
-    .masonry-grid {
-        column-count: 1;
+    /* 모바일에서 텍스트 크기 미세 조정 필요하면 여기서 */
+    .tablet-combined-text {
+        font-size: 12vw;
     }
 }

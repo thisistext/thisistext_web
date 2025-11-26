@@ -9,16 +9,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <aside class="sidebar left-bar">
-        <div class="vertical-text date-text">
-            2026. 1. 31. ~ 2. 01.
+        <div class="vertical-text pc-date-text">
+            2026. 1. 31. ~ 2. 1.
         </div>
     </aside>
 
@@ -48,14 +49,22 @@
         </section>
     </main>
 
-    <nav class="sidebar-menu">
+    <div class="menu-toggle-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <nav class="sidebar-menu" id="menu-area">
         <ul>
-            <li><a href="#">디스이즈텍스트</a></li>
+            <li><a href="#" class="active">디스이즈텍스트</a></li>
             <li><a href="#">참여출판사</a></li>
-            <li><a href="#">후원사</a></li>
+            <li><a href="#">후원</a></li>
             <li><a href="#">프로그램</a></li>
             <li><a href="#">포스터</a></li>
-            <li><a href="#">예약</a></li>
+            <li class="menu-spacer"><a href="#">예약</a></li>
         </ul>
     </nav>
 
@@ -63,8 +72,23 @@
         <div class="vertical-text title-text">
             this is text
         </div>
+
+        <div class="vertical-text tablet-combined-text">
+            this is text 2026. 1. 31. ~ 2. 1.
+        </div>
     </aside>
 
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu-area');
+            const overlay = document.querySelector('.menu-overlay');
+            const btn = document.querySelector('.menu-toggle-btn');
+
+            menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
