@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>this is text</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <aside class="sidebar left-bar">
@@ -24,17 +27,26 @@
         <section class="masonry-grid">
             <article class="card">
                 <div class="card-image-placeholder" style="height: 300px;">IMG 01</div>
-                <div class="card-info"><h2>guest talk</h2><p>텍스트의 미래</p></div>
+                <div class="card-info">
+                    <h2>guest talk</h2>
+                    <p>텍스트의 미래</p>
+                </div>
             </article>
             <article class="card">
                 <div class="card-image-placeholder" style="height: 450px;">IMG 02</div>
-                <div class="card-info"><h2>new exhibitor</h2><p>워크샵</p></div>
+                <div class="card-info">
+                    <h2>new exhibitor</h2>
+                    <p>워크샵</p>
+                </div>
             </article>
             <article class="card">
                 <div class="card-image-placeholder" style="height: 250px;">IMG 03</div>
-                <div class="card-info"><h2>event</h2><p>book signing</p></div>
+                <div class="card-info">
+                    <h2>event</h2>
+                    <p>book signing</p>
+                </div>
             </article>
-            </section>
+        </section>
     </main>
 
     <div class="menu-toggle-btn" onclick="toggleMenu()">
@@ -42,6 +54,8 @@
         <span></span>
         <span></span>
     </div>
+
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
 
     <nav class="sidebar-menu" id="menu-area">
         <ul>
@@ -58,19 +72,23 @@
         <div class="vertical-text title-text">
             this is text
         </div>
-        <div class="vertical-text tablet-date-text">
-            2026. 1. 31. ~ 2. 1.
+
+        <div class="vertical-text tablet-combined-text">
+            this is text 2026. 1. 31. ~ 2. 1.
         </div>
     </aside>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('menu-area');
+            const overlay = document.querySelector('.menu-overlay');
             const btn = document.querySelector('.menu-toggle-btn');
-            // 메뉴와 버튼에 'active' 클래스를 붙였다 뗐다 함
+
             menu.classList.toggle('active');
+            overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }
     </script>
 </body>
+
 </html>
