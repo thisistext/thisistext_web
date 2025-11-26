@@ -1,73 +1,166 @@
 /* --- 1. 기본 설정 --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Space Grotesk', 'IBM Plex Sans KR', sans-serif;
-    font-size: 16px; color: #000; background: #fff; overflow-x: hidden;
+    font-size: 16px;
+    color: #000;
+    background: #fff;
+    overflow-x: hidden;
 }
-a { text-decoration: none; color: inherit; }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* --- 2. PC용 기둥 공통 --- */
 .sidebar {
-    position: fixed; top: 0; height: 100vh;
-    width: 10vw; /* PC 기둥 너비 10% */
-    background: #fff; z-index: 100;
-    display: flex; flex-direction: column;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 10vw;
+    background: #fff;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
 }
+
 .vertical-text {
-    writing-mode: vertical-lr; text-orientation: mixed; white-space: nowrap;
-    font-weight: 700; letter-spacing: 1px;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-/* PC용 폰트 크기 (고정) */
-.pc-date-text, .title-text { font-size: 7rem; }
-/* 태블릿용 날짜 숨김 */
-.tablet-date-text { display: none; }
+/* PC용 폰트 크기 */
+.pc-date-text,
+.title-text {
+    font-size: 7rem;
+}
 
-/* 왼쪽 기둥 */
+/* 태블릿용 긴 텍스트는 PC에서 숨김 */
+.tablet-combined-text {
+    display: none;
+}
+
 .left-bar {
-    left: 0; justify-content: flex-end; align-items: flex-start;
-    padding-left: 20px; padding-bottom: 25px;
+    left: 0;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-left: 20px;
+    padding-bottom: 25px;
 }
-.pc-date-text { transform: rotate(180deg); }
 
-/* 오른쪽 기둥 */
+.pc-date-text {
+    transform: rotate(180deg);
+}
+
 .right-bar {
-    right: 0; justify-content: flex-start; align-items: flex-end;
-    padding-right: 20px; padding-top: 25px;
+    right: 0;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-right: 20px;
+    padding-top: 25px;
 }
 
 /* --- 3. PC용 메뉴 --- */
-.menu-toggle-btn { display: none; } /* 햄버거 버튼 숨김 */
+.menu-toggle-btn,
+.menu-overlay {
+    display: none;
+}
 
 .sidebar-menu {
-    position: fixed; top: 0; right: 10vw; width: 10vw; height: 100vh;
-    z-index: 90; background: #fff; padding-top: 25px;
-    transition: all 0.3s ease; /* 부드러운 전환 효과 */
+    position: fixed;
+    top: 0;
+    right: 10vw;
+    width: 10vw;
+    height: 100vh;
+    z-index: 90;
+    background: #fff;
+    padding-top: 25px;
+    transition: all 0.3s ease;
 }
+
 .sidebar-menu ul {
-    list-style: none; display: flex; flex-direction: column;
-    gap: 0.2em; padding-left: 15px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    padding-left: 15px;
 }
-.menu-spacer { margin-top: 15px; }
+
+.menu-spacer {
+    margin-top: 15px;
+}
+
 .sidebar-menu li a {
-    display: inline-block; text-align: left; font-weight: 600;
-    font-size: 1.2rem; border-bottom: 2px solid transparent; padding-bottom: 2px;
+    display: inline-block;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
 }
-.sidebar-menu li a:hover, .sidebar-menu li a.active {
+
+.sidebar-menu li a:hover,
+.sidebar-menu li a.active {
     border-bottom: 2px solid #000;
 }
 
 /* --- 4. 메인 콘텐츠 --- */
 main {
-    margin-left: 10vw; margin-right: 20vw;
-    padding: 40px; padding-top: 40px; min-height: 100vh; padding-bottom: 100px;
+    margin-left: 10vw;
+    margin-right: 20vw;
+    padding: 40px;
+    padding-top: 40px;
+    min-height: 100vh;
+    padding-bottom: 100px;
 }
-.masonry-grid { column-count: 2; column-gap: 30px; }
-.card { break-inside: avoid; margin-bottom: 60px; }
-.card img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
-.card-image-placeholder { width: 100%; background: #f0f0f0; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #ccc; }
-.card-info h2 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
-.card-info p { font-size: 14px; color: #666; line-height: 1.4; }
+
+.masonry-grid {
+    column-count: 2;
+    column-gap: 30px;
+}
+
+.card {
+    break-inside: avoid;
+    margin-bottom: 60px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.card-image-placeholder {
+    width: 100%;
+    background: #f0f0f0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+}
+
+.card-info h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
 
 
 /* =========================================
@@ -75,106 +168,176 @@ main {
    ========================================= */
 @media (max-width: 1024px) {
 
-    /* 1. 왼쪽 기둥 숨김 */
-    .left-bar { display: none; }
+    /* 1. 기둥 설정 */
+    .left-bar {
+        display: none;
+    }
 
-    /* 2. 오른쪽 기둥 디자인 변경 */
-    .right-bar {
-        /* 두 줄 나란히 */
-        flex-direction: row; justify-content: center; align-items: center;
-        gap: 1vw; /* 두 줄 사이 간격도 반응형으로 */
-        padding: 0;
-        /* 기둥 너비를 화면 비율로 설정 (태블릿: 12%, 모바일로 갈수록 좁아짐) */
-        width: 12vw; 
+    /* 왼쪽 숨김 */
+
+    /* PC용 짧은 제목은 숨기고, 긴 텍스트를 보여줌 */
+    .title-text {
+        display: none;
     }
-    
-    /* 반응형 폰트 크기 적용 (핵심!) */
-    .title-text, .tablet-date-text {
-        /* 화면 너비(vw)에 비례해서 폰트 크기 결정 */
-        font-size: 3.5vw; 
-    }
-    
-    /* 태블릿용 날짜 보이기 */
-    .tablet-date-text {
+
+    .tablet-combined-text {
         display: block;
-        transform: rotate(180deg);
     }
 
-    /* 3. 메인 콘텐츠 여백 조정 */
+    .right-bar {
+        /* 세로쓰기 유지 */
+        flex-direction: column;
+
+        /* 오른쪽 정렬 유지 */
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        /* 폭을 조금 넓힘 */
+        width: 14vw;
+        padding-right: 1vw;
+        /* 오른쪽 여백 살짝 */
+    }
+
+    /* ★ [중요] 태블릿/모바일 기둥 텍스트 설정 ★ */
+    .tablet-combined-text {
+        /* vw 단위: 화면 너비에 따라 글자 크기가 변함
+           숫자가 클수록 글자가 커집니다.
+           화면에서 잘리지 않도록 이 숫자를 조절하세요.
+        */
+        font-size: 11vw;
+        /* <--- 여기 숫자를 조절하세요! */
+
+        font-weight: 700;
+        line-height: 1;
+    }
+
     main {
         margin-left: 0;
-        /* 오른쪽 기둥 너비만큼만 공간 확보 */
-        margin-right: 12vw; 
-        padding-top: 80px; /* 햄버거 버튼 공간 확보 */
+        margin-right: 14vw;
+        padding-top: 80px;
     }
-    .masonry-grid { column-count: 1; }
+
+    .masonry-grid {
+        column-count: 1;
+    }
 
 
-    /* 4. 햄버거 버튼 디자인 */
+    /* 2. 햄버거 버튼 */
     .menu-toggle-btn {
-        display: flex; flex-direction: column; gap: 5px;
-        position: fixed; top: 25px;
-        right: 14vw; /* 오른쪽 기둥보다 약간 안쪽 */
-        z-index: 200; cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        position: fixed;
+        top: 25px;
+        right: 16vw;
+        /* 기둥 옆 */
+        z-index: 200;
+        cursor: pointer;
         padding: 10px;
+        transition: opacity 0.3s;
+        /* 사라질 때 부드럽게 */
     }
-    /* 햄버거 선 3개 그리기 */
+
     .menu-toggle-btn span {
-        display: block; width: 25px; height: 2px; background: #000;
-        transition: all 0.3s;
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: #000;
     }
-    /* 메뉴 열렸을 때 버튼 모양 변경 (X자로) */
-    .menu-toggle-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .menu-toggle-btn.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ★ [수정] 메뉴 열리면 버튼 투명하게 사라짐 (X 안 만듦) */
+    .menu-toggle-btn.active {
+        opacity: 0;
+        pointer-events: none;
+        /* 안 보이는데 눌리는 것 방지 */
+    }
 
 
-    /* 5. 플로팅 메뉴 디자인 (핵심!) */
+    /* 3. 메뉴 오버레이 (투명 막) */
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        /* ★ [수정] 배경 완전 투명 (그림자 없음) */
+        background-color: transparent;
+
+        /* ★ [중요] Z-index 순서 정리 */
+        /* 메뉴(99) > 오버레이(95) > 콘텐츠(기본) */
+        z-index: 95;
+
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* 오버레이 활성화되면 클릭을 받기 위해 보임 처리 */
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* 4. 플로팅 메뉴 */
     .sidebar-menu {
-        /* 평소엔 숨김 */
-        opacity: 0; visibility: hidden;
-        /* 위치 이동 (오른쪽으로 살짝 숨겨둠) */
-        transform: translateX(20px); 
-        
-        /* 콘텐츠 위에 뜨도록 설정 */
-        right: 12vw; /* 오른쪽 기둥 옆 */
-        width: auto; /* 너비는 내용물만큼 */
-        height: auto; /* 높이도 내용물만큼 */
-        background: rgba(255, 255, 255, 0.95); /* 반투명 배경 */
-        padding: 30px;
-        box-shadow: -5px 5px 15px rgba(0,0,0,0.1); /* 살짝 그림자 */
-        border-radius: 10px 0 0 10px; /* 왼쪽 모서리 둥글게 */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(20px);
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        right: 14vw;
+        /* 기둥 옆 */
+        width: auto;
+        min-width: 200px;
+
+        /* ★ [중요] 메뉴는 오버레이보다 위에 있어야 함 */
+        z-index: 99;
+
+        background: #fff;
+        padding: 100px 40px 40px 40px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
     }
 
-    /* 메뉴 열렸을 때 (.active 클래스 추가됨) */
     .sidebar-menu.active {
-        opacity: 1; visibility: visible;
-        transform: translateX(0); /* 원래 위치로 스르륵 등장 */
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
     }
 
     .sidebar-menu ul {
-        padding-left: 0; align-items: flex-end; /* 오른쪽 정렬 */
-        gap: 15px; /* 메뉴 간격 넓게 */
+        align-items: flex-end;
+        gap: 20px;
     }
+
     .sidebar-menu li a {
-        font-size: 1.5rem; /* 메뉴 글자 키움 */
+        font-size: 1.5rem;
     }
 }
 
-/* =========================================
-   [반응형] 모바일 구간 (더 좁은 화면)
-   ========================================= */
+/* 모바일 */
 @media (max-width: 600px) {
-    /* 오른쪽 기둥 폭 더 좁게 */
-    .right-bar { width: 15vw; }
-    /* 콘텐츠 여백도 맞춰서 변경 */
-    main { margin-right: 15vw; }
-    
-    /* 햄버거 버튼 위치 조정 */
-    .menu-toggle-btn { right: 17vw; }
-    
-    /* 플로팅 메뉴 위치 조정 */
-    .sidebar-menu { right: 15vw; }
-    
-    /* 폰트 크기는 vw 단위라 알아서 줄어듦 */
+    .right-bar {
+        width: 18vw;
+    }
+
+    main {
+        margin-right: 18vw;
+    }
+
+    .menu-toggle-btn {
+        right: 20vw;
+    }
+
+    .sidebar-menu {
+        right: 18vw;
+        min-width: 150px;
+    }
+
+    /* 모바일에서 텍스트 크기 미세 조정 필요하면 여기서 */
+    .tablet-combined-text {
+        font-size: 12vw;
+    }
 }
