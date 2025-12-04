@@ -38,10 +38,11 @@ a {
     letter-spacing: 1px;
 }
 
-/* PC용 폰트 크기 */
+/* PC용 폰트 크기 - 뷰포트 높이에 반응하여 잘림 방지 */
 .pc-date-text,
 .title-text {
-    font-size: 7rem;
+    font-size: clamp(4rem, 10vh, 7rem);
+    /* 최소 4rem, 최대 7rem, 기본 10vh */
 }
 
 /* 태블릿용 긴 텍스트는 PC에서 숨김 */
@@ -75,6 +76,12 @@ a {
     user-select: none;
     -webkit-user-select: none;
     /* 선택 불가 */
+    pointer-events: none;
+    /* ★ 메뉴 클릭 방해 방지 */
+}
+
+.right-bar .vertical-text {
+    pointer-events: auto;
 }
 
 /* --- 3. PC용 메뉴 --- */
@@ -90,8 +97,10 @@ a {
     width: 10vw;
     min-width: 140px;
     height: 100vh;
-    z-index: 100;
-    background: #fff;
+    z-index: 101;
+    /* ★ right-bar(100)보다 높아야 겹칠 때 클릭 가능 */
+    background: transparent;
+    /* ★ 배경 투명 - 글자만 보임 */
     padding-top: 25px;
     transition: all 0.3s ease;
 }
@@ -100,7 +109,7 @@ a {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.2em;
+    gap: 0.5em;
 
     /* ★ 핵심 해결책: 자식 요소(메뉴들)를 가로축 끝(오른쪽)으로 정렬 */
     align-items: flex-end;
@@ -131,7 +140,6 @@ main {
     margin-left: 10vw;
     margin-right: 20vw;
     padding: 40px;
-    padding-top: 40px;
     min-height: 100vh;
     padding-bottom: 100px;
 }
@@ -193,8 +201,17 @@ main {
         display: none;
     }
 
+    /* ★ [중요] 태블릿/모바일 기둥 텍스트 설정 ★ */
     .tablet-combined-text {
         display: block;
+        /* vw 단위: 화면 너비에 따라 글자 크기가 변함
+           숫자가 클수록 글자가 커집니다.
+           화면에서 잘리지 않도록 이 숫자를 조절하세요.
+        */
+        font-size: 10vw;
+        /* <--- 여기 숫자를 조절하세요! */
+        font-weight: 700;
+        line-height: 1;
     }
 
     .right-bar {
@@ -216,20 +233,7 @@ main {
         /* 오른쪽 여백 살짝 */
         user-select: none;
         /* 선택 불가 */
-
-    }
-
-    /* ★ [중요] 태블릿/모바일 기둥 텍스트 설정 ★ */
-    .tablet-combined-text {
-        /* vw 단위: 화면 너비에 따라 글자 크기가 변함
-           숫자가 클수록 글자가 커집니다.
-           화면에서 잘리지 않도록 이 숫자를 조절하세요.
-        */
-        font-size: 10vw;
-        /* <--- 여기 숫자를 조절하세요! */
-
-        font-weight: 700;
-        line-height: 1;
+        pointer-events: none;
     }
 
     main {
@@ -330,7 +334,7 @@ main {
 
     .sidebar-menu ul {
         align-items: flex-end;
-        gap: 1x;
+        gap: 0.5em;
     }
 
     .sidebar-menu li a {
@@ -377,17 +381,18 @@ main {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* 태블릿: 포스터 높이 조정 */
+@media (max-width: 768px) {
+    .poster-frame {
+        height: 70vh;
+        /* 모바일은 UI바 때문에 조금 작게 */
+    }
+}
+
 /* 모바일 */
 @media (max-width: 600px) {
     .right-bar {
         width: 18vw;
-    }
-
-    @media (max-width: 768px) {
-        .poster-frame {
-            height: 70vh;
-            /* 모바일은 UI바 때문에 조금 작게 */
-        }
     }
 
     main {
