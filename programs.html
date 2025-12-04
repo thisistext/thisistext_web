@@ -15,64 +15,91 @@
 </head>
 
 <body>
-    <div class="page-container">
-        <main>
-            <section>
-                <span class="section-label">programs</span>
-                <h1 class="section-title">프로그램</h1>
-                <p style="color: #666; margin-bottom: 3rem;">
-                    작가와의 대화, 워크숍 등 다양한 프로그램을 준비했습니다.
-                </p>
+    <div class="page-wrapper">
+        <aside class="sidebar-left" id="sidebar">
+            <div class="site-title">this is text</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">디스이즈텍스트</a></li>
+                <li><a href="publishers.html">참여출판사</a></li>
+                <li><a href="sponsors.html">후원</a></li>
+                <li><a href="programs.html" class="active">프로그램</a></li>
+                <li><a href="poster.html">포스터</a></li>
+            </ul>
+            <div class="sidebar-social">
+                <a href="https://www.instagram.com/thisistext.kr/" target="_blank" title="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+                    </svg>
+                </a>
+                <a href="https://x.com/thisistext_kr" target="_blank" title="X (Twitter)">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://naver.me/xHgIQYFX" target="_blank" class="location-badge">장소</a>
+            </div>
+            <div class="sidebar-footer">
+                2026. 1. 31. – 2. 1.
+            </div>
+        </aside>
 
-                <!-- Day 1 -->
+        <main>
+            <section class="hero">
+                <h1 class="hero-title">programs</h1>
+                <p class="hero-subtitle">작가와의 대화, 워크숍 등 다양한 프로그램을 준비했습니다.</p>
+            </section>
+
+            <section>
                 <div class="schedule-day">
                     <div class="schedule-date">2026. 1. 31. sat</div>
 
                     <div class="schedule-item">
                         <span class="schedule-time">10:00 – 11:00</span>
                         <div>
-                            <strong>개막식</strong>
+                            <div class="schedule-title">개막식</div>
                         </div>
                     </div>
 
                     <div class="schedule-item">
                         <span class="schedule-time">11:00 – 13:00</span>
                         <div>
-                            <strong>작가와의 대화 1</strong>
-                            <p style="color: #666; font-size: 0.9rem; margin-top: 0.3rem;">연사 정보 추가 예정</p>
+                            <div class="schedule-title">작가와의 대화 1</div>
+                            <p class="schedule-desc">연사 정보 추가 예정</p>
                         </div>
                     </div>
 
                     <div class="schedule-item">
                         <span class="schedule-time">14:00 – 16:00</span>
                         <div>
-                            <strong>워크숍: 타이포그래피의 세계</strong>
+                            <div class="schedule-title">워크숍: 타이포그래피의 세계</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Day 2 -->
                 <div class="schedule-day">
                     <div class="schedule-date">2026. 2. 1. sun</div>
 
                     <div class="schedule-item">
                         <span class="schedule-time">10:00 – 12:00</span>
                         <div>
-                            <strong>작가와의 대화 2</strong>
+                            <div class="schedule-title">작가와의 대화 2</div>
                         </div>
                     </div>
 
                     <div class="schedule-item">
                         <span class="schedule-time">13:00 – 15:00</span>
                         <div>
-                            <strong>패널 토론: 독립출판의 미래</strong>
+                            <div class="schedule-title">패널 토론: 독립출판의 미래</div>
                         </div>
                     </div>
 
                     <div class="schedule-item">
                         <span class="schedule-time">16:00 – 17:00</span>
                         <div>
-                            <strong>폐막식</strong>
+                            <div class="schedule-title">폐막식</div>
                         </div>
                     </div>
                 </div>
@@ -85,21 +112,7 @@
         <span></span>
         <span></span>
     </div>
-
     <div class="menu-overlay" onclick="toggleMenu()"></div>
-
-    <aside class="sidebar-right" id="sidebar">
-        <div class="site-title">this is text</div>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="index.html">디스이즈텍스트</a></li>
-                <li><a href="publishers.html">참여출판사</a></li>
-                <li><a href="sponsors.html">후원</a></li>
-                <li><a href="programs.html" class="active">프로그램</a></li>
-                <li><a href="poster.html">포스터</a></li>
-            </ul>
-        </nav>
-    </aside>
 
     <script>
         function toggleMenu() {

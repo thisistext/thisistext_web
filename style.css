@@ -1,7 +1,6 @@
 /* ===================================
-   EDITORIAL DESIGN STYLE
+   EDITORIAL DESIGN - CONCEPT ACCURATE
    this is text - 논픽션 북페어
-   Font: Pretendard (한글) + Space Grotesk (영문, 소문자)
    =================================== */
 
 /* --- 1. 기본 설정 --- */
@@ -17,7 +16,7 @@ body {
     color: #000;
     background: #fff;
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 a {
@@ -25,89 +24,70 @@ a {
     color: inherit;
 }
 
-/* --- 2. 타이포그래피 --- */
-h1,
-h2,
-h3 {
-    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    text-transform: lowercase;
-}
-
-h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    line-height: 1.1;
-}
-
-h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: 1.5rem;
-}
-
-p {
-    font-family: 'Pretendard', sans-serif;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #333;
-}
-
-/* --- 3. 레이아웃 --- */
-.page-container {
-    display: grid;
-    grid-template-columns: 1fr minmax(200px, 15vw);
+/* --- 2. 레이아웃 --- */
+.page-wrapper {
+    display: flex;
     min-height: 100vh;
 }
 
-main {
-    padding: 4rem;
-    padding-right: 2rem;
-    max-width: 900px;
-}
-
-/* --- 4. 사이드바 (오른쪽) --- */
-.sidebar-right {
+/* --- 3. 왼쪽 사이드바 --- */
+.sidebar-left {
     position: fixed;
+    left: 0;
     top: 0;
-    right: 0;
-    width: 15vw;
-    min-width: 180px;
+    width: 220px;
     height: 100vh;
+    padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 2rem 1.5rem;
-    border-left: 1px solid #000;
-    background: #fff;
+    border-right: 1px solid #000;
+    background:
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 30px,
+            #000 30px,
+            #000 31px),
+        #fff;
     z-index: 100;
 }
 
 .site-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: 1.4rem;
     font-weight: 700;
     text-transform: lowercase;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
+    margin-bottom: 4rem;
+    background: #fff;
+    padding: 0.3rem 0.5rem;
+    margin-left: -0.5rem;
 }
 
-/* --- 5. 네비게이션 메뉴 --- */
 .nav-menu {
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 1em 0.5rem;
+    margin-left: -0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .nav-menu li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.1rem;
+}
+
+.nav-menu li:last-child {
+    margin-bottom: 0;
 }
 
 .nav-menu a {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #666;
-    transition: color 0.2s;
-    display: inline-block;
+    transition: color 0.2s ease;
 }
 
 .nav-menu a:hover {
@@ -119,6 +99,94 @@ main {
     font-weight: 700;
 }
 
+.sidebar-footer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.6;
+    background: #fff;
+    padding: 0.3rem 0.5rem;
+    margin-left: -0.5rem;
+}
+
+/* 소셜 링크 */
+.sidebar-social {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    background: #fff;
+    padding: 0.3rem 0.5rem;
+    margin-left: -0.5rem;
+}
+
+.sidebar-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    transition: opacity 0.2s ease;
+}
+
+.sidebar-social a:hover {
+    opacity: 0.6;
+}
+
+.sidebar-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #fff;
+    min-width: 48px;
+    height: 28px;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* --- 4. 메인 콘텐츠 --- */
+main {
+    margin-left: 220px;
+    padding: 4rem 5rem;
+    flex-grow: 1;
+    max-width: 900px;
+}
+
+/* --- 5. 히어로 섹션 --- */
+.hero {
+    margin-bottom: 6rem;
+    padding-top: 2rem;
+}
+
+.hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    margin-bottom: 2rem;
+    white-space: nowrap;
+}
+
+.hero-subtitle {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #333;
+    max-width: 480px;
+}
+
 /* --- 6. 섹션 스타일 --- */
 section {
     margin-bottom: 5rem;
@@ -126,68 +194,56 @@ section {
 
 .section-label {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.7rem;
+    font-weight: 600;
     text-transform: lowercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: #999;
     margin-bottom: 1rem;
     display: block;
 }
 
 .section-title {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.8rem, 4vw, 2.5rem);
-    margin-bottom: 2rem;
-    line-height: 1.2;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
 }
 
-/* --- 7. 히어로 섹션 --- */
-.hero {
-    margin-bottom: 6rem;
-    padding-top: 2rem;
-}
-
-.hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 0.95;
-    margin-bottom: 2rem;
-    letter-spacing: -0.03em;
-}
-
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    max-width: 500px;
-}
-
-/* --- 8. 정보 그리드 --- */
+/* --- 7. 정보 그리드 --- */
 .info-grid {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 2rem;
-    margin-top: 1.5rem;
+    grid-template-columns: 80px 1fr;
+    gap: 0.8rem 1.5rem;
+    margin-top: 1rem;
 }
 
 .info-label {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.9rem;
+    color: #000;
 }
 
 .info-value {
+    font-size: 0.95rem;
     color: #333;
 }
 
-/* --- 9. 링크 버튼 --- */
+/* --- 8. 버튼 --- */
 .link-button {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     border: 1px solid #000;
-    font-family: 'Pretendard', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.2s;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    margin-right: 0.8rem;
+    margin-top: 0.8rem;
 }
 
 .link-button:hover {
@@ -204,18 +260,18 @@ section {
     background: #333;
 }
 
-/* --- 10. 카드 그리드 --- */
+/* --- 9. 카드 그리드 --- */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
 .card {
     padding: 1.5rem;
-    border: 1px solid #eee;
-    transition: border-color 0.2s;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.2s ease;
 }
 
 .card:hover {
@@ -223,34 +279,37 @@ section {
 }
 
 .card-title {
-    font-size: 1.1rem;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
 .card-desc {
     font-size: 0.9rem;
     color: #666;
+    line-height: 1.5;
 }
 
-/* --- 11. 일정 리스트 --- */
+/* --- 10. 일정 --- */
 .schedule-day {
     margin-bottom: 3rem;
 }
 
 .schedule-date {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    padding-bottom: 0.5rem;
+    text-transform: lowercase;
+    padding-bottom: 0.8rem;
     border-bottom: 2px solid #000;
     margin-bottom: 1.5rem;
-    text-transform: lowercase;
 }
 
 .schedule-item {
     display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 1rem;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
 }
@@ -258,43 +317,40 @@ section {
 .schedule-time {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
-/* --- 12. 포스터 --- */
+.schedule-title {
+    font-weight: 600;
+}
+
+.schedule-desc {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+/* --- 11. 포스터 --- */
 .poster-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 2rem 0;
 }
 
-.poster-frame {
-    max-width: 100%;
-    height: auto;
-}
-
 .poster-frame img {
-    max-height: 80vh;
+    max-height: 75vh;
     width: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
 
-/* --- 13. 푸터 정보 --- */
-.footer-info {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-    font-size: 0.85rem;
-    color: #666;
-}
-
-/* --- 14. 모바일 메뉴 토글 --- */
+/* --- 12. 모바일 메뉴 --- */
 .menu-toggle-btn {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
     position: fixed;
     top: 1.5rem;
-    right: 1.5rem;
+    left: 1.5rem;
     z-index: 200;
     cursor: pointer;
     padding: 10px;
@@ -306,36 +362,24 @@ section {
     width: 24px;
     height: 2px;
     background: #000;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .menu-overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 90;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 /* =========================================
    반응형 - 태블릿 (1024px 이하)
    ========================================= */
 @media (max-width: 1024px) {
-    .page-container {
-        grid-template-columns: 1fr;
-    }
-
-    main {
-        padding: 5rem 2rem 4rem;
-        margin-right: 0;
-    }
-
     .menu-toggle-btn {
         display: flex;
     }
@@ -349,26 +393,28 @@ section {
         visibility: visible;
     }
 
-    .sidebar-right {
-        position: fixed;
-        right: -100%;
-        width: 280px;
-        transition: right 0.3s ease;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    .sidebar-left {
+        left: -240px;
+        transition: left 0.3s ease;
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
     }
 
-    .sidebar-right.active {
-        right: 0;
+    .sidebar-left.active {
+        left: 0;
     }
 
-    .site-title {
-        writing-mode: horizontal-tb;
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
+    main {
+        margin-left: 0;
+        padding: 5rem 2rem 4rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        white-space: normal;
     }
 
     .menu-toggle-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(5px, 6px);
     }
 
     .menu-toggle-btn.active span:nth-child(2) {
@@ -376,7 +422,7 @@ section {
     }
 
     .menu-toggle-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(5px, -6px);
     }
 }
 
@@ -388,8 +434,12 @@ section {
         padding: 4rem 1.5rem 3rem;
     }
 
+    .hero {
+        margin-bottom: 4rem;
+    }
+
     .hero-title {
-        font-size: clamp(2rem, 12vw, 3.5rem);
+        font-size: clamp(2rem, 15vw, 3rem);
     }
 
     .info-grid {
