@@ -1,3 +1,9 @@
+/* ===================================
+   EDITORIAL DESIGN STYLE
+   this is text - 논픽션 북페어
+   Font: Pretendard (한글) + Space Grotesk (영문, 소문자)
+   =================================== */
+
 /* --- 1. 기본 설정 --- */
 * {
     margin: 0;
@@ -6,11 +12,12 @@
 }
 
 body {
-    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+    font-family: 'Pretendard', 'Space Grotesk', sans-serif;
     font-size: 16px;
     color: #000;
     background: #fff;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 a {
@@ -18,398 +25,388 @@ a {
     color: inherit;
 }
 
-/* --- 2. PC용 기둥 공통 --- */
-.sidebar {
+/* --- 2. 타이포그래피 --- */
+h1,
+h2,
+h3 {
+    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.5rem;
+}
+
+p {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* --- 3. 레이아웃 --- */
+.page-container {
+    display: grid;
+    grid-template-columns: 1fr minmax(200px, 15vw);
+    min-height: 100vh;
+}
+
+main {
+    padding: 4rem;
+    padding-right: 2rem;
+    max-width: 900px;
+}
+
+/* --- 4. 사이드바 (오른쪽) --- */
+.sidebar-right {
     position: fixed;
     top: 0;
+    right: 0;
+    width: 15vw;
+    min-width: 180px;
     height: 100vh;
-    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    border-left: 1px solid #000;
     background: #fff;
     z-index: 100;
-    display: flex;
-    flex-direction: column;
 }
 
-.vertical-text {
-    writing-mode: vertical-lr;
+.site-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    text-transform: lowercase;
+    writing-mode: vertical-rl;
     text-orientation: mixed;
-    white-space: nowrap;
-    font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.05em;
 }
 
-/* PC용 폰트 크기 - 뷰포트 높이에 반응하여 잘림 방지 */
-.pc-date-text,
-.title-text {
-    font-size: clamp(4rem, 10vh, 7rem);
-    /* 최소 4rem, 최대 7rem, 기본 10vh */
-}
-
-/* 태블릿용 긴 텍스트는 PC에서 숨김 */
-.tablet-combined-text {
-    display: none;
-}
-
-.left-bar {
-    left: 0;
-    justify-content: flex-end;
-    align-items: flex-start;
-    padding-left: 20px;
-    padding-bottom: 25px;
-
-    user-select: none;
-    -webkit-user-select: none;
-    /* 선택 불가 */
-}
-
-.pc-date-text {
-    transform: rotate(180deg);
-}
-
-.right-bar {
-    right: 0;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding-right: 20px;
-    padding-top: 25px;
-
-    user-select: none;
-    -webkit-user-select: none;
-    /* 선택 불가 */
-    pointer-events: none;
-    /* ★ 메뉴 클릭 방해 방지 */
-}
-
-.right-bar .vertical-text {
-    pointer-events: auto;
-}
-
-/* --- 3. PC용 메뉴 --- */
-.menu-toggle-btn,
-.menu-overlay {
-    display: none;
-}
-
-.sidebar-menu {
-    position: fixed;
-    top: 0;
-    right: 10vw;
-    width: 10vw;
-    min-width: 140px;
-    height: 100vh;
-    z-index: 101;
-    /* ★ right-bar(100)보다 높아야 겹칠 때 클릭 가능 */
-    background: transparent;
-    /* ★ 배경 투명 - 글자만 보임 */
-    padding-top: 25px;
-    transition: all 0.3s ease;
-}
-
-.sidebar-menu ul {
+/* --- 5. 네비게이션 메뉴 --- */
+.nav-menu {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-
-    /* ★ 핵심 해결책: 자식 요소(메뉴들)를 가로축 끝(오른쪽)으로 정렬 */
-    align-items: flex-end;
-
-    /* 기존 padding-left: 15px; 삭제 */
-    padding-left: 0;
-
-    /* (옵션) 오른쪽 기둥과 너무 딱 붙지 않게 약간 여백 */
-    padding-right: 10px;
 }
 
-.sidebar-menu li a {
+.nav-menu li {
+    margin-bottom: 0.8rem;
+}
+
+.nav-menu a {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #666;
+    transition: color 0.2s;
     display: inline-block;
-    text-align: right;
+}
+
+.nav-menu a:hover {
+    color: #000;
+}
+
+.nav-menu a.active {
+    color: #000;
     font-weight: 700;
-    font-size: 1.2rem;
-    border-bottom: 2px solid transparent;
-    padding-bottom: 2px;
 }
 
-.sidebar-menu li a:hover,
-.sidebar-menu li a.active {
-    border-bottom: 2px solid #000;
+/* --- 6. 섹션 스타일 --- */
+section {
+    margin-bottom: 5rem;
 }
 
-/* --- 4. 메인 콘텐츠 --- */
-main {
-    margin-left: 10vw;
-    margin-right: 20vw;
-    padding: 40px;
-    min-height: 100vh;
-    padding-bottom: 100px;
+.section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    margin-bottom: 1rem;
+    display: block;
 }
 
-.masonry-grid {
-    column-count: 2;
-    column-gap: 30px;
+.section-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+/* --- 7. 히어로 섹션 --- */
+.hero {
+    margin-bottom: 6rem;
+    padding-top: 2rem;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    margin-bottom: 2rem;
+    letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 500px;
+}
+
+/* --- 8. 정보 그리드 --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.info-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.info-value {
+    color: #333;
+}
+
+/* --- 9. 링크 버튼 --- */
+.link-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #000;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.link-button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.link-button.primary {
+    background: #000;
+    color: #fff;
+}
+
+.link-button.primary:hover {
+    background: #333;
+}
+
+/* --- 10. 카드 그리드 --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .card {
-    break-inside: avoid;
-    margin-bottom: 60px;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    transition: border-color 0.2s;
 }
 
-.card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 15px;
+.card:hover {
+    border-color: #000;
 }
 
-.card-image-placeholder {
-    width: 100%;
-    background: #f0f0f0;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ccc;
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
 }
 
-.card-info h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.card-info p {
-    font-size: 14px;
+.card-desc {
+    font-size: 0.9rem;
     color: #666;
-    line-height: 1.4;
 }
 
+/* --- 11. 일정 리스트 --- */
+.schedule-day {
+    margin-bottom: 3rem;
+}
+
+.schedule-date {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #000;
+    margin-bottom: 1.5rem;
+    text-transform: lowercase;
+}
+
+.schedule-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-time {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
+/* --- 12. 포스터 --- */
+.poster-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.poster-frame {
+    max-width: 100%;
+    height: auto;
+}
+
+.poster-frame img {
+    max-height: 80vh;
+    width: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 13. 푸터 정보 --- */
+.footer-info {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- 14. 모바일 메뉴 토글 --- */
+.menu-toggle-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 200;
+    cursor: pointer;
+    padding: 10px;
+    background: #fff;
+}
+
+.menu-toggle-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transition: all 0.3s;
+}
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
 
 /* =========================================
-   [반응형] 태블릿 & 모바일 (1024px 이하)
+   반응형 - 태블릿 (1024px 이하)
    ========================================= */
 @media (max-width: 1024px) {
-
-    /* 1. 기둥 설정 */
-    .left-bar {
-        display: none;
-    }
-
-    /* 왼쪽 숨김 */
-
-    /* PC용 짧은 제목은 숨기고, 긴 텍스트를 보여줌 */
-    .title-text {
-        display: none;
-    }
-
-    /* ★ [중요] 태블릿/모바일 기둥 텍스트 설정 ★ */
-    .tablet-combined-text {
-        display: block;
-        /* vw 단위: 화면 너비에 따라 글자 크기가 변함
-           숫자가 클수록 글자가 커집니다.
-           화면에서 잘리지 않도록 이 숫자를 조절하세요.
-        */
-        font-size: 10vw;
-        /* <--- 여기 숫자를 조절하세요! */
-        font-weight: 700;
-        line-height: 1;
-    }
-
-    .right-bar {
-        /* 세로쓰기 유지 */
-        flex-direction: column;
-
-        /* 오른쪽 정렬 유지 */
-        justify-content: flex-start;
-        align-items: flex-end;
-
-        /* 폭을 조금 넓힘 */
-        width: 14vw;
-        padding-right: 1vw;
-
-        background: #fff;
-        /* 배경이 투명이면 뒤의 그림자가 비칠 수 있음. 꼭 흰색(#fff)이어야 함 */
-        z-index: 100;
-        /* 메뉴(99)보다 높아야 그림자가 기둥 위를 덮지 않음 */
-        /* 오른쪽 여백 살짝 */
-        user-select: none;
-        /* 선택 불가 */
-        pointer-events: none;
+    .page-container {
+        grid-template-columns: 1fr;
     }
 
     main {
-        margin-left: 0;
-        margin-right: 14vw;
-        padding-top: 80px;
+        padding: 5rem 2rem 4rem;
+        margin-right: 0;
     }
 
-    .masonry-grid {
-        column-count: 1;
-    }
-
-
-    /* 2. 햄버거 버튼 */
     .menu-toggle-btn {
         display: flex;
-        flex-direction: column;
-        gap: 5px;
-        position: fixed;
-        top: 25px;
-        right: 16vw;
-        /* 기둥 옆 */
-        z-index: 200;
-        cursor: pointer;
-        padding: 10px;
-        transition: opacity 0.3s;
-        /* 사라질 때 부드럽게 */
     }
 
-    .menu-toggle-btn span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background: #000;
-    }
-
-    /* ★ [수정] 메뉴 열리면 버튼 투명하게 사라짐 (X 안 만듦) */
-    .menu-toggle-btn.active {
-        opacity: 0;
-        pointer-events: none;
-        /* 안 보이는데 눌리는 것 방지 */
-    }
-
-
-    /* 3. 메뉴 오버레이 (투명 막) */
     .menu-overlay {
         display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-
-        /* ★ [수정] 배경 완전 투명 (그림자 없음) */
-        background-color: transparent;
-
-        /* ★ [중요] Z-index 순서 정리 */
-        /* 메뉴(99) > 오버레이(95) > 콘텐츠(기본) */
-        z-index: 95;
-
-        opacity: 0;
-        visibility: hidden;
     }
 
-    /* 오버레이 활성화되면 클릭을 받기 위해 보임 처리 */
     .menu-overlay.active {
         opacity: 1;
         visibility: visible;
     }
 
+    .sidebar-right {
+        position: fixed;
+        right: -100%;
+        width: 280px;
+        transition: right 0.3s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
 
-    /* 4. 플로팅 메뉴 */
-    .sidebar-menu {
+    .sidebar-right.active {
+        right: 0;
+    }
+
+    .site-title {
+        writing-mode: horizontal-tb;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .menu-toggle-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle-btn.active span:nth-child(2) {
         opacity: 0;
-        visibility: hidden;
-        transform: translateX(20px);
-        top: 0;
-        bottom: 0;
-        height: 100vh;
-        right: 14vw;
-        /* 기둥 옆 */
-        width: auto;
-        min-width: 200px;
-
-        /* ★ [중요] 메뉴는 오버레이보다 위에 있어야 함 */
-        z-index: 99;
-
-        background: #fff;
-        padding: 25px 40px 40px 40px;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.08);
     }
 
-    .sidebar-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(0);
-    }
-
-    .sidebar-menu ul {
-        align-items: flex-end;
-        gap: 0.5em;
-    }
-
-    .sidebar-menu li a {
-        font-size: 1.2rem;
+    .menu-toggle-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 }
 
-/* 포스터들을 감싸는 통 */
-.poster-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* 가로 중앙 정렬 */
-    gap: 100px;
-    /* 포스터 사이 간격 넓게 */
-    padding-bottom: 100px;
-}
-
-/* 개별 포스터 프레임 */
-.poster-frame {
-    /* 화면 높이의 85%만큼 차지하게 함 (꽉 찬 느낌) */
-    height: 85vh;
-
-    /* 너비는 자동 (이미지 비율 유지) */
-    width: auto;
-
-    /* 이미지가 가운데 오도록 */
-    display: flex;
-    justify-content: center;
-}
-
-/* 포스터 이미지 스타일 */
-.poster-frame img {
-    /* 부모(frame) 높이에 100% 맞춤 */
-    height: 100%;
-
-    /* 너비는 비율에 맞춰 자동 조절 */
-    width: auto;
-
-    /* ★ 핵심: 이미지가 비율을 유지하며 프레임 안에 쏙 들어감 (잘림 없음) */
-    object-fit: contain;
-
-    /* 살짝 그림자 줘서 입체감 (선택사항) */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* 태블릿: 포스터 높이 조정 */
-@media (max-width: 768px) {
-    .poster-frame {
-        height: 70vh;
-        /* 모바일은 UI바 때문에 조금 작게 */
-    }
-}
-
-/* 모바일 */
+/* =========================================
+   반응형 - 모바일 (600px 이하)
+   ========================================= */
 @media (max-width: 600px) {
-    .right-bar {
-        width: 18vw;
-    }
-
     main {
-        margin-right: 18vw;
+        padding: 4rem 1.5rem 3rem;
     }
 
-    .menu-toggle-btn {
-        right: 20vw;
+    .hero-title {
+        font-size: clamp(2rem, 12vw, 3.5rem);
     }
 
-    .sidebar-menu {
-        right: 18vw;
-        min-width: 150px;
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
     }
 
-    /* 모바일에서 텍스트 크기 미세 조정 필요하면 여기서 */
-    .tablet-combined-text {
-        font-size: 12vw;
+    .info-label {
+        margin-top: 1rem;
+    }
+
+    .schedule-item {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
     }
 }

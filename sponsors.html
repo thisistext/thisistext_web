@@ -9,47 +9,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="page-container">
+        <main>
+            <section>
+                <span class="section-label">sponsors</span>
+                <h1 class="section-title">후원</h1>
+                <p style="color: #666; margin-bottom: 3rem;">
+                    this is text를 함께 만들어가는 분들입니다.
+                </p>
 
-    <aside class="sidebar left-bar">
-        <div class="vertical-text pc-date-text">
-            2026. 1. 31. ~ 2. 1.
-        </div>
-    </aside>
+                <div style="margin-bottom: 3rem;">
+                    <h2 style="font-size: 1.2rem; margin-bottom: 1rem;">주관</h2>
+                    <div class="card" style="display: inline-block;">
+                        <span style="font-weight: 700;">디스이즈텍스트</span>
+                    </div>
+                </div>
 
-    <main>
-        <h1 style="font-size: 2rem; margin-bottom: 2rem;">후원</h1>
-        <p style="color: #666; line-height: 1.8;">
-            이 페이지는 더미 페이지입니다.<br>
-            후원 정보가 이곳에 표시됩니다.
-        </p>
-
-        <div style="margin-top: 3rem;">
-            <h2 style="font-size: 1.4rem; margin-bottom: 1rem;">주최</h2>
-            <div class="card-image-placeholder" style="height: 80px; width: 200px;">로고</div>
-        </div>
-
-        <div style="margin-top: 2rem;">
-            <h2 style="font-size: 1.4rem; margin-bottom: 1rem;">주관</h2>
-            <div class="card-image-placeholder" style="height: 80px; width: 200px;">로고</div>
-        </div>
-
-        <div style="margin-top: 2rem;">
-            <h2 style="font-size: 1.4rem; margin-bottom: 1rem;">후원</h2>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <div class="card-image-placeholder" style="height: 60px; width: 150px;">후원사 1</div>
-                <div class="card-image-placeholder" style="height: 60px; width: 150px;">후원사 2</div>
-                <div class="card-image-placeholder" style="height: 60px; width: 150px;">후원사 3</div>
-            </div>
-        </div>
-    </main>
+                <div>
+                    <h2 style="font-size: 1.2rem; margin-bottom: 1rem;">후원</h2>
+                    <div class="card" style="display: inline-block;">
+                        <span style="font-weight: 700;">알라딘</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <div class="menu-toggle-btn" onclick="toggleMenu()">
         <span></span>
@@ -59,33 +49,25 @@
 
     <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-    <nav class="sidebar-menu" id="menu-area">
-        <ul>
-            <li><a href="index.html">디스이즈텍스트</a></li>
-            <li><a href="publishers.html">참여출판사</a></li>
-            <li><a href="sponsors.html" class="active">후원</a></li>
-            <li><a href="programs.html">프로그램</a></li>
-            <li><a href="poster.html">포스터</a></li>
-        </ul>
-    </nav>
-
-    <aside class="sidebar right-bar">
-        <div class="vertical-text title-text">
-            this is text
-        </div>
-
-        <div class="vertical-text tablet-combined-text">
-            this is text / 2026. 1. 31. ~ 2. 1.
-        </div>
+    <aside class="sidebar-right" id="sidebar">
+        <div class="site-title">this is text</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">디스이즈텍스트</a></li>
+                <li><a href="publishers.html">참여출판사</a></li>
+                <li><a href="sponsors.html" class="active">후원</a></li>
+                <li><a href="programs.html">프로그램</a></li>
+                <li><a href="poster.html">포스터</a></li>
+            </ul>
+        </nav>
     </aside>
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('menu-area');
+            const sidebar = document.getElementById('sidebar');
             const overlay = document.querySelector('.menu-overlay');
             const btn = document.querySelector('.menu-toggle-btn');
-
-            menu.classList.toggle('active');
+            sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }

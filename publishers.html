@@ -9,52 +9,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="page-container">
+        <main>
+            <section>
+                <span class="section-label">publishers</span>
+                <h1 class="section-title">참여출판사</h1>
+                <p style="color: #666; margin-bottom: 2rem;">
+                    논픽션을 사랑하는 출판사들이 함께합니다.
+                </p>
 
-    <aside class="sidebar left-bar">
-        <div class="vertical-text pc-date-text">
-            2026. 1. 31. ~ 2. 1.
-        </div>
-    </aside>
-
-    <main>
-        <h1 style="font-size: 2rem; margin-bottom: 2rem;">참여출판사</h1>
-        <p style="color: #666; line-height: 1.8;">
-            이 페이지는 더미 페이지입니다.<br>
-            참여출판사 정보가 이곳에 표시됩니다.
-        </p>
-
-        <div class="masonry-grid" style="margin-top: 3rem;">
-            <div class="card">
-                <div class="card-image-placeholder" style="height: 200px;">출판사 로고</div>
-                <div class="card-info">
-                    <h2>예시 출판사 1</h2>
-                    <p>출판사 설명이 들어갑니다.</p>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-title">예시 출판사 1</h3>
+                        <p class="card-desc">출판사 소개가 들어갑니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">예시 출판사 2</h3>
+                        <p class="card-desc">출판사 소개가 들어갑니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">예시 출판사 3</h3>
+                        <p class="card-desc">출판사 소개가 들어갑니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">예시 출판사 4</h3>
+                        <p class="card-desc">출판사 소개가 들어갑니다.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-image-placeholder" style="height: 200px;">출판사 로고</div>
-                <div class="card-info">
-                    <h2>예시 출판사 2</h2>
-                    <p>출판사 설명이 들어갑니다.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-image-placeholder" style="height: 200px;">출판사 로고</div>
-                <div class="card-info">
-                    <h2>예시 출판사 3</h2>
-                    <p>출판사 설명이 들어갑니다.</p>
-                </div>
-            </div>
-        </div>
-    </main>
+            </section>
+        </main>
+    </div>
 
     <div class="menu-toggle-btn" onclick="toggleMenu()">
         <span></span>
@@ -64,33 +54,25 @@
 
     <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-    <nav class="sidebar-menu" id="menu-area">
-        <ul>
-            <li><a href="index.html">디스이즈텍스트</a></li>
-            <li><a href="publishers.html" class="active">참여출판사</a></li>
-            <li><a href="sponsors.html">후원</a></li>
-            <li><a href="programs.html">프로그램</a></li>
-            <li><a href="poster.html">포스터</a></li>
-        </ul>
-    </nav>
-
-    <aside class="sidebar right-bar">
-        <div class="vertical-text title-text">
-            this is text
-        </div>
-
-        <div class="vertical-text tablet-combined-text">
-            this is text / 2026. 1. 31. ~ 2. 1.
-        </div>
+    <aside class="sidebar-right" id="sidebar">
+        <div class="site-title">this is text</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">디스이즈텍스트</a></li>
+                <li><a href="publishers.html" class="active">참여출판사</a></li>
+                <li><a href="sponsors.html">후원</a></li>
+                <li><a href="programs.html">프로그램</a></li>
+                <li><a href="poster.html">포스터</a></li>
+            </ul>
+        </nav>
     </aside>
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('menu-area');
+            const sidebar = document.getElementById('sidebar');
             const overlay = document.querySelector('.menu-overlay');
             const btn = document.querySelector('.menu-toggle-btn');
-
-            menu.classList.toggle('active');
+            sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }

@@ -9,30 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="page-container">
+        <main>
+            <section>
+                <span class="section-label">poster</span>
+                <h1 class="section-title">포스터</h1>
 
-    <aside class="sidebar left-bar">
-        <div class="vertical-text pc-date-text">
-            2026. 1. 31. ~ 2. 1.
-        </div>
-    </aside>
-
-    <main>
-        <div class="poster-container">
-
-            <div class="poster-frame">
-                <img src="poster.jpg" alt="this is text 포스터">
-            </div>
-
-        </div>
-    </main>
+                <div class="poster-container">
+                    <div class="poster-frame">
+                        <img src="poster.jpg" alt="this is text 포스터">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <div class="menu-toggle-btn" onclick="toggleMenu()">
         <span></span>
@@ -42,33 +38,25 @@
 
     <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-    <nav class="sidebar-menu" id="menu-area">
-        <ul>
-            <li><a href="index.html">디스이즈텍스트</a></li>
-            <li><a href="publishers.html">참여출판사</a></li>
-            <li><a href="sponsors.html">후원</a></li>
-            <li><a href="programs.html">프로그램</a></li>
-            <li><a href="poster.html" class="active">포스터</a></li>
-        </ul>
-    </nav>
-
-    <aside class="sidebar right-bar">
-        <div class="vertical-text title-text">
-            this is text
-        </div>
-
-        <div class="vertical-text tablet-combined-text">
-            this is text / 2026. 1. 31. ~ 2. 1.
-        </div>
+    <aside class="sidebar-right" id="sidebar">
+        <div class="site-title">this is text</div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">디스이즈텍스트</a></li>
+                <li><a href="publishers.html">참여출판사</a></li>
+                <li><a href="sponsors.html">후원</a></li>
+                <li><a href="programs.html">프로그램</a></li>
+                <li><a href="poster.html" class="active">포스터</a></li>
+            </ul>
+        </nav>
     </aside>
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('menu-area');
+            const sidebar = document.getElementById('sidebar');
             const overlay = document.querySelector('.menu-overlay');
             const btn = document.querySelector('.menu-toggle-btn');
-
-            menu.classList.toggle('active');
+            sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }
