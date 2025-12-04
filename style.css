@@ -1,4 +1,4 @@
-/* ===================================
+﻿/* ===================================
    EDITORIAL DESIGN - CONCEPT ACCURATE
    this is text - 논픽션 북페어
    =================================== */
@@ -14,7 +14,7 @@ body {
     font-family: 'Pretendard', 'Space Grotesk', sans-serif;
     font-size: 16px;
     color: #000;
-    background: #fff;
+    background: #fffcf5;
     overflow-x: hidden;
     line-height: 1.5;
 }
@@ -46,8 +46,7 @@ a {
             transparent,
             transparent 30px,
             #000 30px,
-            #000 31px),
-        #fff;
+            #000 31px), #fffcf5;
     z-index: 100;
 }
 
@@ -58,7 +57,7 @@ a {
     text-transform: lowercase;
     letter-spacing: -0.02em;
     margin-bottom: 4rem;
-    background: #fff;
+    background: #fffcf5;
     padding: 0.3rem 0.5rem;
     margin-left: -0.5rem;
 }
@@ -67,7 +66,7 @@ a {
     list-style: none;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: #fffcf5;
     padding: 1em 0.5rem;
     margin-left: -0.5rem;
     margin-top: auto;
@@ -99,13 +98,31 @@ a {
     font-weight: 700;
 }
 
+.nav-menu a.disabled {
+    position: relative;
+    pointer-events: none;
+    cursor: default;
+}
+
+.nav-menu a.disabled::after {
+    content: '';
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: 50%;
+    height: 1px;
+    background: #000;
+    transform: translateY(-50%) rotate(-12deg);
+}
+
+
 .sidebar-footer {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #000;
     line-height: 1.6;
-    background: #fff;
+    background: #fffcf5;
     padding: 0.3rem 0.5rem;
     margin-left: -0.5rem;
 }
@@ -116,7 +133,7 @@ a {
     align-items: center;
     gap: 0.6rem;
     margin-bottom: 0.8rem;
-    background: #fff;
+    background: #fffcf5;
     padding: 0.3rem 0.5rem;
     margin-left: -0.5rem;
 }
@@ -343,7 +360,53 @@ section {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
 
-/* --- 12. 모바일 메뉴 --- */
+
+/* --- 12. 출판사 모집 CTA --- */
+.recruitment-box {
+    border: 2px solid #000;
+    padding: 3rem 2.5rem;
+    margin-top: 3rem;
+    max-width: 400px;
+    text-align: center;
+}
+
+.recruitment-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #666;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.recruitment-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.recruitment-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background: #000;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.recruitment-link:hover {
+    background: #333;
+}
+
+/* --- 13. 모바일 메뉴 --- */
 .menu-toggle-btn {
     display: none;
     flex-direction: column;
@@ -354,7 +417,7 @@ section {
     z-index: 200;
     cursor: pointer;
     padding: 10px;
-    background: #fff;
+    background: #fffcf5;
 }
 
 .menu-toggle-btn span {
@@ -460,3 +523,4 @@ section {
         grid-template-columns: 1fr;
     }
 }
+
