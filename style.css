@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Space Grotesk', 'IBM Plex Sans KR', sans-serif;
+    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
     font-size: 16px;
     color: #000;
     background: #fff;
@@ -55,6 +55,10 @@ a {
     align-items: flex-start;
     padding-left: 20px;
     padding-bottom: 25px;
+
+    user-select: none;
+    -webkit-user-select: none;
+    /* 선택 불가 */
 }
 
 .pc-date-text {
@@ -67,6 +71,10 @@ a {
     align-items: flex-end;
     padding-right: 20px;
     padding-top: 25px;
+
+    user-select: none;
+    -webkit-user-select: none;
+    /* 선택 불가 */
 }
 
 /* --- 3. PC용 메뉴 --- */
@@ -80,8 +88,9 @@ a {
     top: 0;
     right: 10vw;
     width: 10vw;
+    min-width: 140px;
     height: 100vh;
-    z-index: 90;
+    z-index: 100;
     background: #fff;
     padding-top: 25px;
     transition: all 0.3s ease;
@@ -92,17 +101,21 @@ a {
     display: flex;
     flex-direction: column;
     gap: 0.2em;
-    padding-left: 15px;
-}
 
-.menu-spacer {
-    margin-top: 15px;
+    /* ★ 핵심 해결책: 자식 요소(메뉴들)를 가로축 끝(오른쪽)으로 정렬 */
+    align-items: flex-end;
+
+    /* 기존 padding-left: 15px; 삭제 */
+    padding-left: 0;
+
+    /* (옵션) 오른쪽 기둥과 너무 딱 붙지 않게 약간 여백 */
+    padding-right: 10px;
 }
 
 .sidebar-menu li a {
     display: inline-block;
-    text-align: left;
-    font-weight: 600;
+    text-align: right;
+    font-weight: 700;
     font-size: 1.2rem;
     border-bottom: 2px solid transparent;
     padding-bottom: 2px;
@@ -195,7 +208,15 @@ main {
         /* 폭을 조금 넓힘 */
         width: 14vw;
         padding-right: 1vw;
+
+        background: #fff;
+        /* 배경이 투명이면 뒤의 그림자가 비칠 수 있음. 꼭 흰색(#fff)이어야 함 */
+        z-index: 100;
+        /* 메뉴(99)보다 높아야 그림자가 기둥 위를 덮지 않음 */
         /* 오른쪽 여백 살짝 */
+        user-select: none;
+        /* 선택 불가 */
+
     }
 
     /* ★ [중요] 태블릿/모바일 기둥 텍스트 설정 ★ */
@@ -204,7 +225,7 @@ main {
            숫자가 클수록 글자가 커집니다.
            화면에서 잘리지 않도록 이 숫자를 조절하세요.
         */
-        font-size: 11vw;
+        font-size: 10vw;
         /* <--- 여기 숫자를 조절하세요! */
 
         font-weight: 700;
@@ -297,8 +318,8 @@ main {
         z-index: 99;
 
         background: #fff;
-        padding: 100px 40px 40px 40px;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+        padding: 25px 40px 40px 40px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.08);
     }
 
     .sidebar-menu.active {
@@ -309,18 +330,64 @@ main {
 
     .sidebar-menu ul {
         align-items: flex-end;
-        gap: 20px;
+        gap: 1x;
     }
 
     .sidebar-menu li a {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
+}
+
+/* 포스터들을 감싸는 통 */
+.poster-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 가로 중앙 정렬 */
+    gap: 100px;
+    /* 포스터 사이 간격 넓게 */
+    padding-bottom: 100px;
+}
+
+/* 개별 포스터 프레임 */
+.poster-frame {
+    /* 화면 높이의 85%만큼 차지하게 함 (꽉 찬 느낌) */
+    height: 85vh;
+
+    /* 너비는 자동 (이미지 비율 유지) */
+    width: auto;
+
+    /* 이미지가 가운데 오도록 */
+    display: flex;
+    justify-content: center;
+}
+
+/* 포스터 이미지 스타일 */
+.poster-frame img {
+    /* 부모(frame) 높이에 100% 맞춤 */
+    height: 100%;
+
+    /* 너비는 비율에 맞춰 자동 조절 */
+    width: auto;
+
+    /* ★ 핵심: 이미지가 비율을 유지하며 프레임 안에 쏙 들어감 (잘림 없음) */
+    object-fit: contain;
+
+    /* 살짝 그림자 줘서 입체감 (선택사항) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* 모바일 */
 @media (max-width: 600px) {
     .right-bar {
         width: 18vw;
+    }
+
+    @media (max-width: 768px) {
+        .poster-frame {
+            height: 70vh;
+            /* 모바일은 UI바 때문에 조금 작게 */
+        }
     }
 
     main {
