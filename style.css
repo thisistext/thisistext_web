@@ -9,7 +9,7 @@ body {
     font-family: 'Space Grotesk', 'Pretendard', sans-serif;
     font-size: 16px;
     color: #000;
-    background: #fff;
+    background: #fffcf5;
     overflow-x: hidden;
 }
 
@@ -24,7 +24,7 @@ a {
     top: 0;
     height: 100vh;
     width: 10vw;
-    background: #fff;
+    background: #fffcf5;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -226,7 +226,7 @@ main {
         width: 14vw;
         padding-right: 1vw;
 
-        background: #fff;
+        background: #fffcf5;
         /* 배경이 투명이면 뒤의 그림자가 비칠 수 있음. 꼭 흰색(#fff)이어야 함 */
         z-index: 100;
         /* 메뉴(99)보다 높아야 그림자가 기둥 위를 덮지 않음 */
@@ -321,7 +321,7 @@ main {
         /* ★ [중요] 메뉴는 오버레이보다 위에 있어야 함 */
         z-index: 99;
 
-        background: #fff;
+        background: #fffcf5;
         padding: 25px 40px 40px 40px;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.08);
     }
@@ -378,7 +378,7 @@ main {
     object-fit: contain;
 
     /* 살짝 그림자 줘서 입체감 (선택사항) */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* box-shadow removed */
 }
 
 /* 태블릿: 포스터 높이 조정 */
