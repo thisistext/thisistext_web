@@ -168,7 +168,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ccc;
+    color: #F0EEE9;
 }
 
 .card-info h2 {
@@ -212,6 +212,10 @@ main {
         /* <--- 여기 숫자를 조절하세요! */
         font-weight: 700;
         line-height: 1;
+    }
+
+    .tablet-combined-text .date-num {
+        font-size: 0.9em;
     }
 
     .right-bar {
