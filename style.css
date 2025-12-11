@@ -30,17 +30,18 @@ a {
     min-height: 100vh;
 }
 
-/* --- 3. 왼쪽 사이드바 --- */
-.sidebar-left {
+/* --- 3. 오른쪽 사이드바 --- */
+.sidebar-right {
     position: fixed;
-    left: 0;
+    right: 0;
     top: 0;
     width: 220px;
     height: 100vh;
     padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #000;
+    align-items: flex-end;
+    border-left: 1px solid #000;
     background:
         repeating-linear-gradient(90deg,
             transparent,
@@ -59,18 +60,21 @@ a {
     margin-bottom: 4rem;
     background: #fffcf5;
     padding: 0.3rem 0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    text-align: right;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     background: #fffcf5;
     padding: 1em 0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -0.5rem;
     margin-top: auto;
     margin-bottom: auto;
+    text-align: right;
 }
 
 .nav-menu li {
@@ -124,18 +128,20 @@ a {
     line-height: 1.6;
     background: #fffcf5;
     padding: 0.3rem 0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    text-align: right;
 }
 
 /* 소셜 링크 */
 .sidebar-social {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.6rem;
     margin-bottom: 0.8rem;
     background: #fffcf5;
     padding: 0.3rem 0.5rem;
-    margin-left: -0.5rem;
+    margin-right: -0.5rem;
 }
 
 .sidebar-social a {
@@ -173,7 +179,8 @@ a {
 
 /* --- 4. 메인 콘텐츠 --- */
 main {
-    margin-left: 220px;
+    margin-right: 220px;
+    margin-left: 0;
     padding: 4rem 5rem;
     flex-grow: 1;
     max-width: 900px;
@@ -413,7 +420,7 @@ section {
     gap: 6px;
     position: fixed;
     top: 1.5rem;
-    left: 1.5rem;
+    right: 1.5rem;
     z-index: 200;
     cursor: pointer;
     padding: 10px;
@@ -456,18 +463,18 @@ section {
         visibility: visible;
     }
 
-    .sidebar-left {
-        left: -240px;
-        transition: left 0.3s ease;
-        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+    .sidebar-right {
+        right: -240px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
     }
 
-    .sidebar-left.active {
-        left: 0;
+    .sidebar-right.active {
+        right: 0;
     }
 
     main {
-        margin-left: 0;
+        margin-right: 0;
         padding: 5rem 2rem 4rem;
     }
 
@@ -523,4 +530,3 @@ section {
         grid-template-columns: 1fr;
     }
 }
-
