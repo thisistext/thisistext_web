@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>포스터 - this is text</title>
+    <title>안내와 연결 - this is text</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +25,65 @@
     </aside>
 
     <main>
-        <div class="poster-container">
+        <h1 class="page-headline">안내와 연결</h1>
 
-            <div class="poster-frame">
-                <img src="poster.jpg" alt="this is text 포스터">
+        <!-- 실용 정보 섹션 -->
+        <div class="info-grid">
+
+            <!-- 행사 정보 -->
+            <div class="info-block">
+                <h2 class="info-block-title">행사 정보</h2>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-label">일시</span>
+                        <span class="info-value">2026. 01. 31 (토) — 02. 01 (일)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">시간</span>
+                        <span class="info-value">10:00 — 18:00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">장소</span>
+                        <span class="info-value">서울 중구 서소문로 89-31, 알라딘빌딩 1층</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">입장료</span>
+                        <span class="info-value">무료(사전 예약 필수)</span>
+                    </div>
+                </div>
+                <a href="https://naver.me/Fcmd6dYf" target="_blank" class="info-map-btn">📍 네이버 지도에서 보기</a>
             </div>
 
+            <!-- 연락처 -->
+            <div class="info-block">
+                <h2 class="info-block-title">문의</h2>
+                <div class="info-list">
+                    <div class="info-item">
+                        <span class="info-label">이메일</span>
+                        <span class="info-value"><a href="mailto:hello@thisistext.kr">hello@thisistext.kr</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SNS -->
+            <div class="info-block">
+                <h2 class="info-block-title">SNS</h2>
+                <div class="info-sns-links">
+                    <a href="https://instagram.com/thisistext.kr" target="_blank" class="sns-link">Instagram</a>
+                    <a href="https://x.com/thisistext_kr" target="_blank" class="sns-link">Twitter / X</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 포스터 -->
+        <div class="poster-section">
+            <h2 class="info-block-title">포스터</h2>
+            <div class="poster-container">
+                <div class="poster-frame">
+                    <img src="poster.jpg" alt="this is text 포스터">
+                </div>
+            </div>
         </div>
     </main>
 
@@ -46,9 +99,9 @@
         <ul>
             <li><a href="index.html">디스이즈텍스트</a></li>
             <li><a href="publishers.html">참여출판사</a></li>
-            <li><a href="sponsors.html">후원</a></li>
             <li><a href="programs.html">프로그램</a></li>
-            <li><a href="poster.html" class="active">포스터</a></li>
+            <li><a href="sponsors.html">후원</a></li>
+            <li><a href="info.html" class="active">안내와 연결</a></li>
         </ul>
     </nav>
 

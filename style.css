@@ -9,7 +9,7 @@ body {
     font-family: 'Space Grotesk', 'Pretendard', sans-serif;
     font-size: 16px;
     color: #000;
-    background: #fff;
+    background: #F0EEE9;
     overflow-x: hidden;
 }
 
@@ -24,7 +24,7 @@ a {
     top: 0;
     height: 100vh;
     width: 10vw;
-    background: #fff;
+    background: #F0EEE9;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -39,10 +39,14 @@ a {
 }
 
 /* PC용 폰트 크기 - 뷰포트 높이에 반응하여 잘림 방지 */
-.pc-date-text,
 .title-text {
     font-size: clamp(4rem, 10vh, 7rem);
     /* 최소 4rem, 최대 7rem, 기본 10vh */
+}
+
+.pc-date-text {
+    font-size: clamp(3.6rem, 9vh, 5.7rem);
+    /* title-text보다 약 10% 작게 */
 }
 
 /* 태블릿용 긴 텍스트는 PC에서 숨김 */
@@ -139,9 +143,353 @@ a {
 main {
     margin-left: 10vw;
     margin-right: 20vw;
-    padding: 40px;
+    padding: 25px 40px 100px 40px;
     min-height: 100vh;
-    padding-bottom: 100px;
+
+}
+
+/* --- 4.1 인트로 섹션 --- */
+.intro-section {
+    margin-bottom: 3rem;
+}
+
+.page-headline {
+    font-family: 'Pretendard', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.intro-body {
+    font-family: 'Pretendard', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-weight: 400;
+    line-height: 2;
+    color: #000;
+    max-width: 600px;
+}
+
+/* --- 4.2 CTA 섹션 --- */
+.cta-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.cta-button {
+    flex: 1;
+    display: inline-block;
+    padding: 1.5rem 1rem;
+    background: #000;
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background: #333;
+}
+
+/* 인트로 첫 문장 강조 */
+.intro-lead {
+    font-weight: 700;
+    color: #000;
+}
+
+/* CTA 정보 박스 */
+.cta-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-left: 1rem;
+    border-left: 3px solid #000;
+    max-width: 400px;
+}
+
+.cta-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.cta-info-label {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cta-info-value {
+    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+}
+
+/* --- 4.4 프로그램 타임라인 --- */
+.program-timeline {
+    margin-top: 1rem;
+}
+
+.timeline-day {
+    margin-bottom: 3rem;
+}
+
+.timeline-date {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #000;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #000;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #ddd;
+    transition: border-color 0.2s ease;
+}
+
+.timeline-item:hover {
+    border-left-color: #000;
+}
+
+.timeline-time {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    min-width: 50px;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-desc {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+}
+
+.timeline-speaker {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #888;
+}
+
+/* --- 4.5 후원 등급 카드 --- */
+.sponsor-tiers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.sponsor-tier-card {
+    border: 2px solid #000;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.sponsor-tier-card:hover {
+    background: #000;
+    color: #fff;
+}
+
+.tier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid currentColor;
+}
+
+.tier-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.tier-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tier-benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.tier-benefits li {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.tier-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+.sponsor-contact {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #000;
+}
+
+.sponsor-contact-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.sponsor-contact-info {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.sponsor-contact-info a {
+    color: #000;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* --- 4.6 안내와 연결 페이지 --- */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-block {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-block-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.info-label {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.info-value {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+}
+
+.info-value a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.info-map-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    background: #000;
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.info-map-btn:hover {
+    background: #333;
+}
+
+.info-sns-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.sns-link {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border: 2px solid #000;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sns-link:hover {
+    background: #000;
+    color: #fff;
+}
+
+.poster-section {
+    margin-top: 2rem;
 }
 
 .masonry-grid {
@@ -181,6 +529,109 @@ main {
     font-size: 14px;
     color: #666;
     line-height: 1.4;
+}
+
+/* --- 4.3 출판사 아코디언 리스트 --- */
+.pub-list {
+    margin-top: 2rem;
+}
+
+.pub-group {
+    margin-bottom: 2rem;
+}
+
+.pub-group-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #666;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #000;
+    margin-bottom: 0;
+}
+
+.pub-item {
+    border-bottom: 1px solid #000;
+}
+
+.pub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pub-header:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.pub-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.pub-name {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.pub-slogan {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.pub-icon {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+.pub-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 0;
+}
+
+.pub-item.active .pub-body {
+    max-height: 300px;
+    padding: 0 0 1.5rem 0;
+}
+
+.pub-intro {
+    font-family: 'Noto Serif KR', 'Batang', serif;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #333;
+    margin-bottom: 1.2rem;
+}
+
+.pub-book {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pub-book-cover {
+    width: 60px;
+    height: 80px;
+    background: #e0e0e0;
+    flex-shrink: 0;
+}
+
+.pub-book-title {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
 }
 
 
@@ -230,7 +681,7 @@ main {
         width: 15vw;
         padding-right: 1vw;
 
-        background: #fff;
+        background: #F0EEE9;
         /* 배경이 투명이면 뒤의 그림자가 비칠 수 있음. 꼭 흰색(#fff)이어야 함 */
         z-index: 100;
         /* 메뉴(99)보다 높아야 그림자가 기둥 위를 덮지 않음 */
@@ -243,7 +694,7 @@ main {
     main {
         margin-left: 0;
         margin-right: 15vw;
-        padding-top: 80px;
+        padding-top: 25px;
     }
 
     .masonry-grid {
@@ -325,7 +776,7 @@ main {
         /* ★ [중요] 메뉴는 오버레이보다 위에 있어야 함 */
         z-index: 99;
 
-        background: #fff;
+        background: #F0EEE9;
         padding: 25px 40px 40px 40px;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.08);
     }
