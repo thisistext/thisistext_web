@@ -1,4 +1,9 @@
 /* --- 1. 기본 설정 --- */
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
 * {
     margin: 0;
     padding: 0;
