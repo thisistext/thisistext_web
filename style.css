@@ -670,8 +670,18 @@ main {
         line-height: 1;
     }
 
+    /* ★ [조절] 태블릿/모바일 날짜 숫자 크기 ★
+       아래 font-size를 조절하면 날짜 숫자만 크기가 변합니다.
+       - 0.9em = 본문(this is text)의 90% 크기
+       - 0.8em = 80% 크기 (더 작게)
+       - 1.0em = 100% 크기 (동일)
+       - 0.7em = 70% 크기 (훨씬 작게)
+    */
     .tablet-combined-text .date-num {
-        font-size: 0.9em;
+        font-size: 0.83em;
+        /* <--- 여기 숫자를 조절하세요! */
+        vertical-align: bottom;
+        /* 텍스트와 바텀라인 정렬 */
     }
 
     .right-bar {
