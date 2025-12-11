@@ -223,7 +223,7 @@ main {
         align-items: flex-end;
 
         /* 폭을 조금 넓힘 */
-        width: 14vw;
+        width: 15vw;
         padding-right: 1vw;
 
         background: #fff;
@@ -238,7 +238,7 @@ main {
 
     main {
         margin-left: 0;
-        margin-right: 14vw;
+        margin-right: 15vw;
         padding-top: 80px;
     }
 
@@ -254,7 +254,7 @@ main {
         gap: 5px;
         position: fixed;
         top: 25px;
-        right: 16vw;
+        right: 12vw;
         /* 기둥 옆 */
         z-index: 200;
         cursor: pointer;
@@ -313,7 +313,7 @@ main {
         top: 0;
         bottom: 0;
         height: 100vh;
-        right: 14vw;
+        right: 15vw;
         /* 기둥 옆 */
         width: auto;
         min-width: 200px;
@@ -391,25 +391,19 @@ main {
 
 /* 모바일 */
 @media (max-width: 600px) {
-    .right-bar {
-        width: 18vw;
-    }
-
-    main {
-        margin-right: 18vw;
-    }
+    /* 기존 width/margin overrides 제거하여 상위(tablet) 15vw 설정 상속 */
 
     .menu-toggle-btn {
-        right: 20vw;
+        right: 13vw;
     }
 
     .sidebar-menu {
-        right: 18vw;
+        right: 15vw;
         min-width: 150px;
     }
 
     /* 모바일에서 텍스트 크기 미세 조정 필요하면 여기서 */
     .tablet-combined-text {
-        font-size: 12vw;
+        font-size: 10vw;
     }
 }
