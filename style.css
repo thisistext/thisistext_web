@@ -150,7 +150,7 @@ main {
     margin-right: 20vw;
     padding: 25px 40px 100px 40px;
     min-height: 100vh;
-
+    max-width: 720px;
 }
 
 /* --- 4.1 인트로 섹션 --- */
@@ -174,7 +174,7 @@ main {
     font-weight: 400;
     line-height: 2;
     color: #000;
-    max-width: 600px;
+    max-width: 720px;
 }
 
 /* --- 4.2 CTA 섹션 --- */
@@ -189,7 +189,7 @@ main {
     display: flex;
     gap: 1rem;
     width: 100%;
-    max-width: 600px;
+    max-width: 720px;
 }
 
 .cta-button {
@@ -223,7 +223,7 @@ main {
     gap: 0.8rem;
     padding-left: 1rem;
     border-left: 3px solid #000;
-    max-width: 400px;
+    max-width: 480px;
 }
 
 .cta-info-item {
@@ -377,6 +377,133 @@ main {
     font-weight: 700;
 }
 
+/* --- 4.5-2 후원사 카드 (목록) --- */
+.sponsor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.sponsor-card {
+    border: 2px solid #000;
+    border-radius: 0;
+    background: transparent;
+    transition: all 0.25s ease;
+}
+
+.sponsor-card:hover {
+    background: #000;
+    color: #fff;
+}
+
+.sponsor-card-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2.5rem;
+    gap: 2rem;
+}
+
+.sponsor-info {
+    flex: 1;
+}
+
+.sponsor-name {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.sponsor-name-en {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.sponsor-tagline {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.sponsor-desc {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin-top: 0.5rem;
+}
+
+.sponsor-link-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1.5px solid currentColor;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sponsor-link-btn:hover {
+    background: currentColor;
+}
+
+.sponsor-card:not(:hover) .sponsor-link-btn:hover {
+    color: #fff;
+    background: #000;
+}
+
+.sponsor-card:hover .sponsor-link-btn:hover {
+    color: #000;
+    background: #fff;
+}
+
+.sponsor-contribution {
+    text-align: right;
+    min-width: 180px;
+}
+
+.contribution-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.contribution-detail {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* 모바일 반응형 - 후원사 카드 */
+@media (max-width: 768px) {
+    .sponsor-card-main {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .sponsor-contribution {
+        text-align: left;
+        min-width: auto;
+        padding-top: 1rem;
+        border-top: 1px solid currentColor;
+        width: 100%;
+    }
+}
+
 .sponsor-contact {
     margin-top: 2rem;
     padding-top: 2rem;
@@ -405,8 +532,8 @@ main {
 
 /* --- 4.6 안내와 연결 페이지 --- */
 .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -455,42 +582,97 @@ main {
     text-decoration: underline;
 }
 
-.info-map-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.8rem 1.2rem;
-    background: #000;
-    color: #fff;
-    font-family: 'Pretendard', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: background 0.2s ease;
+/* 액션 링크 버튼 (SNS, 보도자료 등) */
+.info-action-links {
+    display: flex;
+    gap: 1rem;
 }
 
-.info-map-btn:hover {
+.action-link-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 1.6rem;
+    background: #000;
+    color: #F0EEE9;
+    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.action-link-btn:hover {
     background: #333;
 }
 
-.info-sns-links {
+/* 모바일에서 버튼 세로 배치 */
+@media (max-width: 600px) {
+    .info-action-links {
+        flex-direction: column;
+    }
+}
+
+/* --- FAQ 아코디언 --- */
+.faq-list {
+    margin-top: 0.5rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #000;
+}
+
+.faq-header {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-.sns-link {
-    display: inline-block;
-    padding: 0.6rem 1rem;
-    border: 2px solid #000;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.9rem;
+.faq-header:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.faq-question {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.1rem;
     font-weight: 600;
-    transition: all 0.2s ease;
+    color: #000;
 }
 
-.sns-link:hover {
-    background: #000;
-    color: #fff;
+.faq-icon {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #000;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-body {
+    max-height: 200px;
+    padding-bottom: 1.5rem;
+}
+
+.faq-answer {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #555;
 }
 
 .poster-section {
