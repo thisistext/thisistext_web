@@ -1184,3 +1184,8 @@ main {
 .info-block-title {
     margin-top: 1.1rem !important; /* Was 0, now 10% of spacing */
 }
+
+/* --- Info block divider style (matching sponsor-contact) --- */
+.info-block {
+    border-bottom: 2px solid #000 !important;
+}
