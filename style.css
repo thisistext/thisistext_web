@@ -170,6 +170,32 @@ main {
     margin-bottom: 2rem;
 }
 
+/* --- 자음 네비게이션 (출판사 페이지) --- */
+.consonant-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.consonant-nav a {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+
+.consonant-nav a:hover {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
 .intro-subheadline {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(1.5rem, 4vw, 2.2rem);
@@ -1103,6 +1129,7 @@ main {
 .info-block {
     scroll-margin-top: 100px;
 }
+
 /* --- 5. Footer (New) --- */
 .site-footer {
     margin-top: 160px;
@@ -1182,7 +1209,8 @@ main {
 
 /* --- H2 margin adjustment (10% more) --- */
 .info-block-title {
-    margin-top: 1.1rem !important; /* Was 0, now 10% of spacing */
+    margin-top: 1.1rem !important;
+    /* Was 0, now 10% of spacing */
 }
 
 /* --- Info block divider style (matching sponsor-contact) --- */
