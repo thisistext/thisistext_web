@@ -49,6 +49,34 @@ a {
     /* 최소 4rem, 최대 7rem, 기본 10vh */
 }
 
+/* 대각선 취소선 (교정지 느낌) - 개별 단어용 */
+.strikethrough-word {
+    position: relative;
+    display: inline-block;
+}
+
+.strikethrough-word::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 45%;
+    right: 0;
+    border-top: 2px solid;
+    border-color: inherit;
+    transform: rotate(16deg);
+}
+
+/* 세로쓰기 사이드바용 취소선 */
+.vertical-text .strikethrough-word::before {
+    left: 45%;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    border-top: none;
+    border-left: 2px solid;
+    transform: rotate(16deg);
+}
+
 .pc-date-text {
     font-size: clamp(3.6rem, 9vh, 5.7rem);
     /* title-text보다 약 10% 작게 */
@@ -166,6 +194,16 @@ main {
     letter-spacing: -0.02em;
     color: #000;
     margin-bottom: 2rem;
+}
+
+.intro-subheadline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
 }
 
 .intro-body {
