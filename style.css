@@ -1048,11 +1048,9 @@ main {
 
 /* 개별 포스터 프레임 */
 .poster-frame {
-    /* 화면 높이의 85%만큼 차지하게 함 (꽉 찬 느낌) */
-    height: 85vh;
-
-    /* 너비는 자동 (이미지 비율 유지) */
-    width: auto;
+    /* 너비 100%로 꽉 차게 */
+    width: 100%;
+    height: auto;
 
     /* 이미지가 가운데 오도록 */
     display: flex;
@@ -1061,24 +1059,18 @@ main {
 
 /* 포스터 이미지 스타일 */
 .poster-frame img {
-    /* 부모(frame) 높이에 100% 맞춤 */
-    height: 100%;
+    /* 프레임 너비에 100% 맞춤 */
+    width: 100%;
+    height: auto;
 
-    /* 너비는 비율에 맞춰 자동 조절 */
-    width: auto;
-
-    /* ★ 핵심: 이미지가 비율을 유지하며 프레임 안에 쏙 들어감 (잘림 없음) */
+    /* 비율 유지 */
     object-fit: contain;
-
-    /* 살짝 그림자 줘서 입체감 (선택사항) */
-    /* box-shadow removed */
 }
 
-/* 태블릿: 포스터 높이 조정 */
+/* 태블릿: 포스터 조정 */
 @media (max-width: 768px) {
     .poster-frame {
-        height: 70vh;
-        /* 모바일은 UI바 때문에 조금 작게 */
+        width: 100%;
     }
 }
 
