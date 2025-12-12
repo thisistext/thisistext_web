@@ -1,30 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>this is text - 논픽션 북페어</title>
+    <title>SAMPLE - this is text</title>
     <!-- SEO Meta Tags -->
     <meta name="description" content="텍스트의 물성을 탐구하는 논픽션 북페어 'this is text'. 2026년 1월 31일부터 2월 1일까지 서울에서 열립니다.">
-    <meta name="keywords" content="this is text, 논픽션, 북페어, 독립출판, 텍스트, 타이포그래피, 서울북페어">
-    <meta name="author" content="this is text">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://thisistext.kr/">
-    <meta property="og:title" content="this is text - 논픽션 북페어">
-    <meta property="og:description" content="텍스트의 물성을 탐구하는 논픽션 북페어. 감각적인 텍스트의 세계로 초대합니다.">
-    <meta property="og:image" content="og-image.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://thisistext.kr/">
-    <meta property="twitter:title" content="this is text - 논픽션 북페어">
-    <meta property="twitter:description" content="텍스트의 물성을 탐구하는 논픽션 북페어 'this is text'.">
-    <meta property="twitter:image" content="og-image.png">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='white'/><line x1='10' y1='38.5' x2='90' y2='61.5' stroke='black' stroke-width='8'/></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,9 +16,137 @@
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- SAMPLE STYLE OVERRIDES --- */
+
+        /* 1. Typography Improvements (Premium Feel) */
+        body {
+            /* Adjusted letter-spacing for cleaner look */
+            letter-spacing: -0.01em;
+        }
+
+        .intro-body {
+            /* Increased line-height for better readability */
+            line-height: 1.8;
+            /* Slightly looser tracking for body text */
+            letter-spacing: -0.005em;
+            color: #222;
+            /* Slightly softer black */
+        }
+
+        .section-title {
+            /* New class if needed, or overriding existing headers */
+            letter-spacing: -0.02em;
+        }
+
+        /* 2. New Footer Styles */
+        .site-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #000;
+            font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+            font-size: 0.9rem;
+            color: #000;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* 3. Dark Mode Toggle (Conceptual Placement) */
+        /* Placing it in the top-left of the left sidebar */
+        .theme-toggle-wrapper {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 200;
+            cursor: pointer;
+            mix-blend-mode: difference;
+            /* Ensures visibility on white/black */
+            color: #fff;
+            /* Due to difference blend mode, this will look black on white */
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: rotate(15deg);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .theme-toggle-wrapper {
+                top: 20px;
+                left: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Dark Mode Toggle Sample -->
+    <div class="theme-toggle-wrapper" title="Switch Theme">
+        <button class="theme-toggle-btn">
+            ☀
+        </button>
+    </div>
 
     <aside class="sidebar left-bar">
         <div class="vertical-text pc-date-text">
@@ -85,12 +195,14 @@
                 </div>
             </div>
         </section>
-        <!-- NEW FOOTER -->
+
+        <!-- NEW FOOTER SAMPLE -->
         <footer class="site-footer">
             <div class="footer-content">
                 <div class="footer-top">
                     <div class="footer-column">
                         <span class="footer-logo">this is text</span>
+                        <p>서울 북페어 2026</p>
                     </div>
                     <div class="footer-links">
                         <a href="#">Instagram</a>
@@ -104,6 +216,7 @@
                 </div>
             </div>
         </footer>
+
     </main>
 
     <div class="menu-toggle-btn" onclick="toggleMenu()">
@@ -145,7 +258,6 @@
             btn.classList.toggle('active');
         }
     </script>
-    <script src="smooth-scroll.js"></script>
 </body>
 
 </html>

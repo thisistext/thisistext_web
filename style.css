@@ -16,6 +16,8 @@ body {
     color: #000;
     background: #F0EEE9;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
+    /* Typography adjustment */
 }
 
 a {
@@ -182,8 +184,12 @@ main {
     font-family: 'Pretendard', sans-serif;
     font-size: clamp(1rem, 2vw, 1.1rem);
     font-weight: 400;
-    line-height: 2;
-    color: #000;
+    line-height: 1.8;
+    /* Typography adjustment */
+    color: #222;
+    /* Typography adjustment */
+    letter-spacing: -0.005em;
+    /* Typography adjustment */
     max-width: 720px;
 }
 
@@ -1096,4 +1102,85 @@ main {
 /* 앵커 이동 시 상단 여백 확보 (부드러운 이동 시 딱 붙지 않게) */
 .info-block {
     scroll-margin-top: 100px;
+}
+/* --- 5. Footer (New) --- */
+.site-footer {
+    margin-top: 160px;
+    padding-top: 40px;
+    border-top: 1px solid #000;
+    font-family: 'Space Grotesk', 'Pretendard', sans-serif;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+    opacity: 0.6;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Mobile adjustments for Footer */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+}
+
+/* --- FAQ Static List Override --- */
+.faq-body {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.faq-header {
+    cursor: default !important;
+}
+
+.faq-icon {
+    display: none !important;
+}
+
+/* --- H2 margin adjustment (10% more) --- */
+.info-block-title {
+    margin-top: 1.1rem !important; /* Was 0, now 10% of spacing */
 }
