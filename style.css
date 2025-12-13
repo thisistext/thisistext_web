@@ -225,6 +225,8 @@ main {
     letter-spacing: -0.005em;
     /* Typography adjustment */
     max-width: 720px;
+    word-wrap: break-word;
+    word-break: keep-all;
 }
 
 /* --- 4.2 CTA 섹션 --- */
