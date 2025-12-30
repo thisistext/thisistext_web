@@ -181,7 +181,6 @@
         <ul>
             <li><a href="index.html">디스이즈텍스트</a></li>
             <li><a href="publishers.html">참여출판사</a></li>
-            <li><a href="programs.html">프로그램</a></li>
             <li><a href="sponsors.html">후원</a></li>
             <li><a href="info.html" class="active">안내와 연결</a></li>
         </ul>
@@ -208,28 +207,8 @@
             btn.classList.toggle('active');
         }
     </script>
-    <script>
-        // 앵커 링크 부드러운 스크롤 (wheel event 무시하고 강제 이동)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    const headerOffset = 65; // 50px -> 60px 조정 (답답하지 않게)
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }
-            });
-        });
-    </script>
-    <script src="smooth-scroll.js"></script>
 </body>
 
 </html>
