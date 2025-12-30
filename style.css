@@ -684,6 +684,10 @@ main {
     border-bottom: 1px solid #000;
 }
 
+.faq-item:last-child {
+    border-bottom: none;
+}
+
 .faq-header {
     display: flex;
     justify-content: space-between;
