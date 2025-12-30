@@ -162,10 +162,10 @@ main {
 
 .page-headline {
     font-family: 'Pretendard', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.3rem, 5.8vw, 3.5rem);
     font-weight: 800;
-    line-height: 1.4;
-    letter-spacing: -0.02em;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     color: #000;
     margin-bottom: 2rem;
 }
@@ -216,11 +216,11 @@ main {
 
 .intro-body {
     font-family: 'Pretendard', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-size: 1.05rem;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.7;
     /* Typography adjustment */
-    color: #222;
+    color: #000;
     /* Typography adjustment */
     letter-spacing: -0.005em;
     /* Typography adjustment */
@@ -264,7 +264,12 @@ main {
 
 /* 인트로 첫 문장 강조 */
 .intro-lead {
+    font-size: 1.2rem;
     font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 1rem;
     color: #000;
 }
 
@@ -416,10 +421,11 @@ main {
 
 .tier-benefits li {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.8;
     padding-left: 1rem;
     position: relative;
+    color: #000;
 }
 
 .tier-benefits li::before {
@@ -484,10 +490,11 @@ main {
 
 .sponsor-desc {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.7;
-    opacity: 0.85;
+    opacity: 1;
+    color: #000;
     margin-top: 0.5rem;
 }
 
@@ -722,9 +729,9 @@ main {
 
 .faq-answer {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    color: #555;
+    color: #000;
 }
 
 .poster-section {

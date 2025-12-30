@@ -2,6 +2,15 @@
 <html lang="ko">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06VWBP2ZYP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-06VWBP2ZYP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>참여출판사 - this is text</title>
@@ -595,27 +604,43 @@
             btn.classList.toggle('active');
         }
 
-        // Accordion toggle for publisher items
+        // Accordion functionality for publishers
         document.querySelectorAll('.pub-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
-                const isActive = item.classList.contains('active');
 
-                // Close all items (optional: only one open at a time)
-                document.querySelectorAll('.pub-item').forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('.pub-icon').textContent = '+';
+                // Close other items
+                document.querySelectorAll('.pub-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
                 });
 
-                // If the clicked item was not active, open it
-                if (!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('.pub-icon').textContent = '−';
+                // Toggle current item
+                item.classList.toggle('active');
+
+                // GA4 Event Tracking for Publisher Toggle
+                if (item.classList.contains('active')) {
+                    const pubName = header.querySelector('.pub-name').innerText;
+                    gtag('event', 'click_publisher', {
+                        'event_category': 'interest',
+                        'event_label': pubName
+                    });
                 }
             });
         });
-    </script>
 
+        // GA4 Tracking for Navigation Links
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const pageName = link.innerText;
+                gtag('event', 'click_nav', {
+                    'event_category': 'navigation',
+                    'event_label': pageName
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

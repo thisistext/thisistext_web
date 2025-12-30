@@ -2,6 +2,15 @@
 <html lang="ko">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06VWBP2ZYP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-06VWBP2ZYP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>this is text - 논픽션 북페어</title>
@@ -55,14 +64,9 @@
 
             <h2 class="intro-subheadline">this is text</h2>
             <p class="intro-body">
-                <strong class="intro-lead">올해 처음으로 문을 여는 디스이즈텍스트는 논픽션 출판 생태계의 다양성에 주목합니다.</strong><br>화려한 굿즈와 전시에 가려졌던
-                텍스트의
-                민낯을 마주하고,
-                책 그 자체가 지닌 물성과 깊이에 온전히 집중하는 시간을 제안합니다.<br><br>
-
-                페어 기간 동안 열리는 모든 프로그램과 테이블은 텍스트를 읽는 행위가 어떻게 개인의 세계를 확장하는지 실험하는 자리가 될 것입니다.<br>
-
-                이번 행사는 중구 서소문로의 알라딘 본사에서 개최됩니다.<br><br>
+                <strong class="intro-lead">올해 처음으로 문을 여는 디스이즈텍스트는 논픽션 출판 생태계의 다양성에 주목합니다.</strong><br>
+                화려한 굿즈와 전시에 가려졌던 텍스트 그 자체를 대면하고, 책이 지닌 물성과 깊이에 온전히 집중하는 시간을 제안합니다.<br>
+                페어 기간 동안 열리는 모든 프로그램과 테이블은 텍스트를 읽는 행위가 어떻게 개인의 세계를 확장하는지 실험하는 자리가 될 것입니다.<br><br>
                 텍스트의 무게를 견디며 책을 만드는 출판사들, 그리고 그 책을 깊이 읽어줄 독자 여러분을 기다립니다.
             </p>
         </section>
@@ -70,21 +74,23 @@
         <!-- CTA 버튼 섹션 -->
         <section class="cta-section">
             <div class="cta-buttons">
-                <a href="https://forms.gle/9S3565fVPWVfzesS9" target="_blank" class="cta-button">
+                <a href="https://booking.naver.com/booking/12/bizes/1547937" target="_blank" class="cta-button"
+                    onclick="gtag('event', 'click_reservation', {'event_category': 'conversion', 'event_label': 'naver_booking'});">
                     사전예약
                 </a>
-                <a href="https://naver.me/Fcmd6dYf" target="_blank" class="cta-button">
+                <a href="https://naver.me/Fcmd6dYf" target="_blank" class="cta-button"
+                    onclick="gtag('event', 'click_location', {'event_category': 'interest', 'event_label': 'naver_map'});">
                     오시는 길
                 </a>
             </div>
             <div class="cta-info-box">
                 <div class="cta-info-item">
                     <span class="cta-info-label">일시</span>
-                    <span class="cta-info-value">2026. 01. 31 (금) — 02. 01 (토)</span>
+                    <span class="cta-info-value">2026. 01. 31 (토) — 02. 01 (일)</span>
                 </div>
                 <div class="cta-info-item">
                     <span class="cta-info-label">장소</span>
-                    <span class="cta-info-value">서울 중구 서소문로 89-31, 알라딘 사옥</span>
+                    <span class="cta-info-value">서울시 중구 서소문로 89-31, 알라딘빌딩 1층</span>
                 </div>
             </div>
         </section>
@@ -146,8 +152,18 @@
             overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }
-    </script>
 
+        // GA4 Tracking for Navigation Links
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const pageName = link.innerText;
+                gtag('event', 'click_nav', {
+                    'event_category': 'navigation',
+                    'event_label': pageName
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

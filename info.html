@@ -2,6 +2,15 @@
 <html lang="ko">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06VWBP2ZYP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-06VWBP2ZYP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>안내와 연결 - this is text</title>
@@ -62,7 +71,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">시간</span>
-                        <span class="info-value">10:00 — 18:00</span>
+                        <span class="info-value">10:30 — 17:30</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">장소</span>
@@ -208,11 +217,28 @@
             overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }
+
+        // GA4 Tracking for Navigation Links
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const pageName = link.innerText;
+                gtag('event', 'click_nav', {
+                    'event_category': 'navigation',
+                    'event_label': pageName
+                });
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
     </script>
-
-
-
-
 </body>
 
 </html>

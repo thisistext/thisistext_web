@@ -2,6 +2,15 @@
 <html lang="ko">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06VWBP2ZYP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-06VWBP2ZYP');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>프로그램 - this is text</title>
@@ -166,8 +175,18 @@
             overlay.classList.toggle('active');
             btn.classList.toggle('active');
         }
-    </script>
 
+        // GA4 Tracking for Navigation Links
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const pageName = link.innerText;
+                gtag('event', 'click_nav', {
+                    'event_category': 'navigation',
+                    'event_label': pageName
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
