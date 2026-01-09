@@ -1260,3 +1260,65 @@ main {
 .info-block {
     border-bottom: 2px solid #000 !important;
 }
+
+/* --- 후원 박스 Hover 시 텍스트 색상 강제 변경 (Fix) --- */
+
+/* 1. 후원 등급(금액) 카드 마우스 오버 시 */
+.sponsor-tier-card:hover .tier-benefits li {
+    color: #fff !important;
+}
+
+/* 2. 후원사(목록) 카드 마우스 오버 시 */
+.sponsor-card:hover .sponsor-name-en,
+.sponsor-card:hover .sponsor-tagline,
+.sponsor-card:hover .sponsor-desc {
+    color: #fff !important;
+    opacity: 1;
+    /* 투명도가 있다면 선명하게 */
+}
+
+/* (옵션) 후원사 카드 오버 시 링크 버튼 테두리도 하얗게 */
+.sponsor-card:hover .sponsor-link-btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* (옵션) 후원사 카드 오버 상태에서 -> 버튼에 마우스 올렸을 때 (흰 배경/검은 글씨) */
+.sponsor-card:hover .sponsor-link-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+
+/* --- 회차 정보 정렬 (Grid 수정버전) --- */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.schedule-row {
+    display: grid;
+    /* [핵심 수정] 너비를 '글자 크기'가 아니라 '고정 픽셀'로 박제합니다 */
+    /* 1열(회차): 50px, 2열(구분선): 20px, 3열(시간): 나머지 */
+    grid-template-columns: 46px 14px auto;
+    align-items: center;
+}
+
+/* 구분선(|)을 그 칸의 정중앙에 위치시킴 */
+.schedule-row .bar {
+    color: #ccc;
+    font-weight: 300;
+    text-align: center;
+    /* 가로 중앙 정렬 */
+    transform: translateY(-2px);
+    /* 살짝 위로 */
+}
+
+/* 시간 숫자(마지막 span)들이 흔들리지 않게 고정폭 숫자 적용 */
+.schedule-row span:last-child {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: 0;
+}
