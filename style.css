@@ -853,7 +853,7 @@ main {
 }
 
 .pub-item.active .pub-body {
-    max-height: 300px;
+    max-height: 2000px;
     padding: 0 0 1.5rem 0;
 }
 
