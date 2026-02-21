@@ -1,6 +1,6 @@
 /* --- 1. 기본 설정 --- */
 html {
-    scroll-behavior: smooth;
+
     scrollbar-gutter: stable;
 }
 
@@ -162,10 +162,10 @@ main {
 
 .page-headline {
     font-family: 'Pretendard', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.3rem, 5.8vw, 3.5rem);
     font-weight: 800;
-    line-height: 1.4;
-    letter-spacing: -0.02em;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
     color: #000;
     margin-bottom: 2rem;
 }
@@ -216,11 +216,11 @@ main {
 
 .intro-body {
     font-family: 'Pretendard', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-size: 1.05rem;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.7;
     /* Typography adjustment */
-    color: #222;
+    color: #000;
     /* Typography adjustment */
     letter-spacing: -0.005em;
     /* Typography adjustment */
@@ -264,7 +264,12 @@ main {
 
 /* 인트로 첫 문장 강조 */
 .intro-lead {
+    font-size: 1.2rem;
     font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 1rem;
     color: #000;
 }
 
@@ -416,10 +421,11 @@ main {
 
 .tier-benefits li {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.8;
     padding-left: 1rem;
     position: relative;
+    color: #000;
 }
 
 .tier-benefits li::before {
@@ -484,10 +490,11 @@ main {
 
 .sponsor-desc {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.7;
-    opacity: 0.85;
+    opacity: 1;
+    color: #000;
     margin-top: 0.5rem;
 }
 
@@ -677,6 +684,10 @@ main {
     border-bottom: 1px solid #000;
 }
 
+.faq-item:last-child {
+    border-bottom: none;
+}
+
 .faq-header {
     display: flex;
     justify-content: space-between;
@@ -722,9 +733,9 @@ main {
 
 .faq-answer {
     font-family: 'Pretendard', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    color: #555;
+    color: #000;
 }
 
 .poster-section {
@@ -842,7 +853,7 @@ main {
 }
 
 .pub-item.active .pub-body {
-    max-height: 300px;
+    max-height: 2000px;
     padding: 0 0 1.5rem 0;
 }
 
@@ -871,6 +882,28 @@ main {
     font-family: 'Pretendard', sans-serif;
     font-size: 0.9rem;
     color: #666;
+}
+
+.pub-links {
+    margin-bottom: 1.2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pub-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.pub-link:hover {
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 
@@ -1226,4 +1259,66 @@ main {
 /* --- Info block divider style (matching sponsor-contact) --- */
 .info-block {
     border-bottom: 2px solid #000 !important;
+}
+
+/* --- 후원 박스 Hover 시 텍스트 색상 강제 변경 (Fix) --- */
+
+/* 1. 후원 등급(금액) 카드 마우스 오버 시 */
+.sponsor-tier-card:hover .tier-benefits li {
+    color: #fff !important;
+}
+
+/* 2. 후원사(목록) 카드 마우스 오버 시 */
+.sponsor-card:hover .sponsor-name-en,
+.sponsor-card:hover .sponsor-tagline,
+.sponsor-card:hover .sponsor-desc {
+    color: #fff !important;
+    opacity: 1;
+    /* 투명도가 있다면 선명하게 */
+}
+
+/* (옵션) 후원사 카드 오버 시 링크 버튼 테두리도 하얗게 */
+.sponsor-card:hover .sponsor-link-btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+/* (옵션) 후원사 카드 오버 상태에서 -> 버튼에 마우스 올렸을 때 (흰 배경/검은 글씨) */
+.sponsor-card:hover .sponsor-link-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+
+/* --- 회차 정보 정렬 (Grid 수정버전) --- */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.schedule-row {
+    display: grid;
+    /* [핵심 수정] 너비를 '글자 크기'가 아니라 '고정 픽셀'로 박제합니다 */
+    /* 1열(회차): 50px, 2열(구분선): 20px, 3열(시간): 나머지 */
+    grid-template-columns: 46px 14px auto;
+    align-items: center;
+}
+
+/* 구분선(|)을 그 칸의 정중앙에 위치시킴 */
+.schedule-row .bar {
+    color: #ccc;
+    font-weight: 300;
+    text-align: center;
+    /* 가로 중앙 정렬 */
+    transform: translateY(-2px);
+    /* 살짝 위로 */
+}
+
+/* 시간 숫자(마지막 span)들이 흔들리지 않게 고정폭 숫자 적용 */
+.schedule-row span:last-child {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: 0;
 }
